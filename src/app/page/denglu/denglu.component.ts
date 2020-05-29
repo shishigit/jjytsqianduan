@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {HttpService} from "../../service/http.service";
 
 @Component({
     selector: 'app-denglu',
@@ -7,6 +8,12 @@ import {Component} from '@angular/core';
 })
 export class DengluComponent
 {
+    constructor(
+        private readonly httpService: HttpService
+    )
+    {
+    }
+
     dengluxinxi = {
         zhanghao: '',
         mima: ''
@@ -14,5 +21,6 @@ export class DengluComponent
 
     denglu()
     {
+        this.httpService.post('')
     }
 }
