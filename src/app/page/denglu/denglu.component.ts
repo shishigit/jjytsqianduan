@@ -21,6 +21,6 @@ export class DengluComponent
 
     denglu()
     {
-        this.httpService.post('')
+        this.httpService.post('/xitong/denglu', this.dengluxinxi).subscribe()
     }
 }

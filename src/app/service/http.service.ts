@@ -10,9 +10,8 @@ export class HttpService
     {
     }
 
-    post(url: string)
+    post(url: string, body: any)
     {
-        this.httpClient.post(url, null)
-            .subscribe()
+        return this.httpClient.post(url, body)
     }
 }

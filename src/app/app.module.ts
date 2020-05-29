@@ -7,6 +7,7 @@ import {DengluComponent} from './page/denglu/denglu.component';
 import {NzAvatarModule, NzButtonModule, NzIconModule, NzInputModule} from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import {FormsModule} from "@angular/forms";
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
         NzButtonModule, NzCardModule, NzAvatarModule, NzIconModule, NzInputModule, FormsModule
     ],
     providers: [],
