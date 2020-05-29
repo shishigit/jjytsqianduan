@@ -1,7 +1,10 @@
 <div style="text-align: center">
-    <nz-card style="width:300px;display: inline-block;margin-top: 25%" [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-        <nz-card-meta nzTitle="Card title" nzDescription="This is the description"
+    <nz-card style="width:300px;display: inline-block;margin-top: 10%" [nzCover]="coverTemplate"
+             [nzActions]="[actionSetting]">
+        <nz-card-meta nzTitle="税务系统" nzDescription="税务系统"
                       [nzAvatar]="avatarTemplate"></nz-card-meta>
+        <input nz-input placeholder="Basic usage" style="margin-top: 20px" [(ngModel)]="dengluxinxi.zhanghao"/>
+        <input nz-input placeholder="Basic usage" style="margin-top: 10px"/>
     </nz-card>
     <ng-template #avatarTemplate>
         <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
@@ -11,11 +14,5 @@
     </ng-template>
     <ng-template #actionSetting>
         <i nz-icon nzType="setting"></i>
-    </ng-template>
-    <ng-template #actionEdit>
-        <i nz-icon nzType="edit"></i>
-    </ng-template>
-    <ng-template #actionEllipsis>
-        <i nz-icon nzType="ellipsis"></i>
     </ng-template>
 </div>

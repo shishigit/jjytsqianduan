@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-denglu',
-  templateUrl: './denglu.component.html',
-  styleUrls: ['./denglu.component.css']
+    selector: 'app-denglu',
+    templateUrl: './denglu.component.html',
+    styleUrls: ['./denglu.component.css']
 })
-export class DengluComponent implements OnInit {
+export class DengluComponent implements OnInit
+{
+    dengluxinxi = {
+        zhanghao: '',
+        mima: ''
+    }
 
-  constructor() { }
+    constructor()
+    {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void
+    {
+    }
 
 }
