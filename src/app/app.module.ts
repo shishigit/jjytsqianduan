@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DengluComponent} from './page/denglu/denglu.component';
-import {NzButtonModule} from "ng-zorro-antd";
+import {NzAvatarModule, NzButtonModule, NzIconModule} from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
 
 @NgModule({
@@ -15,7 +15,7 @@ import {NzCardModule} from 'ng-zorro-antd/card';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NzButtonModule, NzCardModule
+        NzButtonModule, NzCardModule, NzAvatarModule, NzIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]
