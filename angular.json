@@ -104,6 +104,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jjytsqianduan"
+    }
+  },
+  "defaultProject": "jjytsqianduan",
+  "cli": {
+    "analytics": false
+  }
 }
