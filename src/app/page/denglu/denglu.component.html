@@ -3,8 +3,8 @@
              [nzActions]="[actionSetting]">
         <nz-card-meta nzTitle="税务系统" nzDescription="税务系统"
                       [nzAvatar]="avatarTemplate"></nz-card-meta>
-        <input nz-input placeholder="Basic usage" style="margin-top: 20px" [(ngModel)]="dengluxinxi.zhanghao"/>
-        <input nz-input placeholder="Basic usage" style="margin-top: 10px"/>
+        <input nz-input placeholder="账号" style="margin-top: 20px" [(ngModel)]="dengluxinxi.zhanghao"/>
+        <input nz-input placeholder="密码" style="margin-top: 10px" [(ngModel)]="dengluxinxi.mima"/>
     </nz-card>
     <ng-template #avatarTemplate>
         <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
@@ -13,6 +13,6 @@
         <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"/>
     </ng-template>
     <ng-template #actionSetting>
-        <i nz-icon nzType="setting"></i>
+        <button nz-button nzType="primary" style="width: 90%" (click)="denglu">登录</button>
     </ng-template>
 </div>
