@@ -8,6 +8,7 @@ import {NzAvatarModule, NzButtonModule, NzIconModule, NzInputModule, NzNotificat
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
         NzIconModule,
         NzInputModule,
         FormsModule,
-        NzNotificationModule
+        NzNotificationModule,
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
