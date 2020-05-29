@@ -10,8 +10,10 @@ export class HttpService
     {
     }
 
+    private readonly houtai = '/houtai'
+
     post(url: string, body: any)
     {
-        return this.httpClient.post(url, body)
+        return this.httpClient.post(this.houtai + url, body)
     }
 }
