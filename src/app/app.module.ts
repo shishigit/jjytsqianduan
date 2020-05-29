@@ -3,7 +3,9 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { DengluComponent } from './page/denglu/denglu.component';
+import {DengluComponent} from './page/denglu/denglu.component';
+import {NzButtonModule} from "ng-zorro-antd";
+import {NzCardModule} from 'ng-zorro-antd/card';
 
 @NgModule({
     declarations: [
@@ -12,10 +14,12 @@ import { DengluComponent } from './page/denglu/denglu.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NzButtonModule, NzCardModule
     ],
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppModule
+{
 }

@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {DengluComponent} from "./page/denglu/denglu.component";
 
 
+
 const routes: Routes = [
     {
         path: '',
