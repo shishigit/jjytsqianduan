@@ -4,7 +4,14 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DengluComponent} from './page/denglu/denglu.component';
-import {NzAvatarModule, NzButtonModule, NzIconModule, NzInputModule, NzNotificationModule} from "ng-zorro-antd";
+import {
+    NzAvatarModule, NzBreadCrumbModule,
+    NzButtonModule,
+    NzIconModule,
+    NzInputModule,
+    NzLayoutModule, NzMenuModule,
+    NzNotificationModule
+} from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
@@ -28,7 +35,10 @@ import { ZhuyeComponent } from './page/zhuye/zhuye.component';
         NzInputModule,
         FormsModule,
         NzNotificationModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        NzLayoutModule,
+        NzBreadCrumbModule,
+        NzMenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]
