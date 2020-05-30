@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {HttpService} from "../../service/http.service";
 import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-denglu',
@@ -10,7 +11,8 @@ import {environment} from "../../../environments/environment";
 export class DengluComponent
 {
     constructor(
-        private readonly httpService: HttpService
+        private readonly httpService: HttpService,
+        private readonly route: Router
     )
     {
     }
@@ -22,10 +24,8 @@ export class DengluComponent
 
     denglu()
     {
-        this.httpService.post('/xitong/denglu', this.dengluxinxi)
-            .subscribe(value =>
-            {
-                console.log(value)
-            })
+        this.httpService
+            .post('/xitong/denglu', this.dengluxinxi)
+            .subscribe(value => this.route.navigateByUrl('zhuye'))
     }
 }

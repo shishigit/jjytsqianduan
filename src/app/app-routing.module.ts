@@ -1,8 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DengluComponent} from "./page/denglu/denglu.component";
-
-
+import {ZhuyeComponent} from "./page/zhuye/zhuye.component";
 
 const routes: Routes = [
     {
@@ -13,6 +12,10 @@ const routes: Routes = [
     {
         path: 'denglu',
         component: DengluComponent
+    },
+    {
+        path: 'zhuye',
+        component: ZhuyeComponent
     }
 ];
 
@@ -20,5 +23,6 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class AppRoutingModule
+{
 }

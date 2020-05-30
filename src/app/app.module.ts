@@ -9,11 +9,13 @@ import {NzCardModule} from 'ng-zorro-antd/card';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ZhuyeComponent } from './page/zhuye/zhuye.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DengluComponent,
+        ZhuyeComponent,
     ],
     imports: [
         BrowserModule,
