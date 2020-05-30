@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpService} from "../../service/http.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'app-denglu',
@@ -15,12 +16,16 @@ export class DengluComponent
     }
 
     dengluxinxi = {
-        zhanghao: '',
-        mima: ''
+        zhanghao: 'admin',
+        mima: environment.production ? '' : 'mima'
     }
 
     denglu()
     {
-        this.httpService.post('/xitong/denglu', this.dengluxinxi).subscribe()
+        this.httpService.post('/xitong/denglu', this.dengluxinxi)
+            .subscribe(value =>
+            {
+                console.log(value)
+            })
     }
 }

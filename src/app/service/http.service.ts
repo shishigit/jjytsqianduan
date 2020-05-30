@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError, filter} from "rxjs/operators";
+import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
 
 @Injectable({
@@ -33,8 +33,7 @@ export class HttpService
                         }
                     }
                     throw err
-                }),
-                filter<Response>(value => value.status !== 600)
+                })
             )
     }
 }
