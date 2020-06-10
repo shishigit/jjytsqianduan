@@ -16,9 +16,16 @@
         <nz-header></nz-header>
         <nz-content>
             <nz-tabset [nzType]="'line'">
-                <ng-template *ngFor="let ll of tabs">
-                    <app-yeqian></app-yeqian>
-                </ng-template>
+                <nz-tab [nzTitle]="titleTemplate">
+                    <ng-template #titleTemplate>
+                        <div>
+                            000000000000
+                            <i nz-icon nzType="close"></i>
+                        </div>
+                    </ng-template>
+                    <div #ceshi>
+                    </div>
+                </nz-tab>
             </nz-tabset>
         </nz-content>
         <nz-footer>JJY ©2020 Angular</nz-footer>

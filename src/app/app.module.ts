@@ -18,15 +18,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ZhuyeComponent } from './page/zhuye/zhuye.component';
 import { YonghuguanliComponent } from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
-import { YeqianComponent } from './zujian/yeqian/yeqian.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DengluComponent,
         ZhuyeComponent,
-        YonghuguanliComponent,
-        YeqianComponent,
+        YonghuguanliComponent
     ],
     imports: [
         BrowserModule,

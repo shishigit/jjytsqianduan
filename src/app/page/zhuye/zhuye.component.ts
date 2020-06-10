@@ -1,5 +1,6 @@
-import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {HoutaishujuService} from "../../service/houtaishuju.service";
+import {YonghuguanliComponent} from "../xitongguanli/yonghuguanli/yonghuguanli.component";
 
 @Component({
     selector: 'app-zhuye',
@@ -8,17 +9,19 @@ import {HoutaishujuService} from "../../service/houtaishuju.service";
 })
 export class ZhuyeComponent implements OnInit
 {
-    @ViewChild("dynamicContainer", {read: ViewContainerRef}) container: ViewContainerRef;
+    @ViewChild("ceshi", {static: true, read: ViewContainerRef}) container: ViewContainerRef;
 
     constructor(
-        readonly houtaishujuService: HoutaishujuService
+        readonly houtaishujuService: HoutaishujuService,
+        private readonly factoryResolver: ComponentFactoryResolver
     )
     {
     }
 
     ngOnInit(): void
     {
-
+        let ls = this.factoryResolver.resolveComponentFactory(YonghuguanliComponent)
+        let ls1 = this.container.createComponent(ls)
     }
 
     yijiliebiao()
@@ -34,12 +37,5 @@ export class ZhuyeComponent implements OnInit
     caidandianji(yiji: string, erji: string)
     {
 
-    }
-
-    tabs = ['Tab 1', 'Tab 2'];
-
-    closeTab(tab: string): void
-    {
-        this.tabs.splice(this.tabs.indexOf(tab), 1);
     }
 }
