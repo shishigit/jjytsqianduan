@@ -10,19 +10,23 @@ import {
     NzIconModule,
     NzInputModule,
     NzLayoutModule, NzMenuModule,
-    NzNotificationModule
+    NzNotificationModule, NzTabsModule
 } from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ZhuyeComponent } from './page/zhuye/zhuye.component';
+import { YonghuguanliComponent } from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
+import { YeqianComponent } from './zujian/yeqian/yeqian.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DengluComponent,
         ZhuyeComponent,
+        YonghuguanliComponent,
+        YeqianComponent,
     ],
     imports: [
         BrowserModule,
@@ -38,7 +42,8 @@ import { ZhuyeComponent } from './page/zhuye/zhuye.component';
         BrowserAnimationsModule,
         NzLayoutModule,
         NzBreadCrumbModule,
-        NzMenuModule
+        NzMenuModule,
+        NzTabsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

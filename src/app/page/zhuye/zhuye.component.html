@@ -4,7 +4,10 @@
         <ul nz-menu nzTheme="dark" nzMode="inline">
             <li *ngFor="let yiji of yijiliebiao()" nz-submenu [nzTitle]="yiji">
                 <ul>
-                    <li nz-menu-item *ngFor="let erji of erjiliebiao(yiji)">{{erji}}</li>
+                    <li nz-menu-item
+                        *ngFor="let erji of erjiliebiao(yiji)"
+                        (click)="caidandianji(yiji,erji)"
+                    >{{erji}}</li>
                 </ul>
             </li>
         </ul>
@@ -12,14 +15,12 @@
     <nz-layout>
         <nz-header></nz-header>
         <nz-content>
-            <nz-breadcrumb>
-                <nz-breadcrumb-item>User</nz-breadcrumb-item>
-                <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-            </nz-breadcrumb>
-            <div class="inner-content">
-                Bill is a cat.
-            </div>
+            <nz-tabset [nzType]="'line'">
+                <ng-template *ngFor="let ll of tabs">
+                    <app-yeqian></app-yeqian>
+                </ng-template>
+            </nz-tabset>
         </nz-content>
-        <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+        <nz-footer>JJY ©2020 Angular</nz-footer>
     </nz-layout>
 </nz-layout>
