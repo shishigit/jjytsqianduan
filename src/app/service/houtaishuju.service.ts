@@ -5,6 +5,16 @@ import {Injectable} from '@angular/core';
 })
 export class HoutaishujuService
 {
+    yongyoujiekous: Array<{
+        id: number;
+        method: 'post' | 'get' | 'all';
+        url: string;
+        fenzu: string;
+        shuoming: string;
+        qiyong: boolean;
+        jianquan: 'niming' | 'denglu' | 'jianquan';
+    }>;
+
     constructor()
     {
     }
