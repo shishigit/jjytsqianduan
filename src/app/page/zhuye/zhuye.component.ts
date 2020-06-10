@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HoutaishujuService} from "../../service/houtaishuju.service";
 
 @Component({
     selector: 'app-zhuye',
@@ -8,12 +9,24 @@ import {Component, OnInit} from '@angular/core';
 export class ZhuyeComponent implements OnInit
 {
 
-    constructor()
+    constructor(
+        readonly houtaishujuService: HoutaishujuService
+    )
     {
     }
 
     ngOnInit(): void
     {
+
     }
 
+    yijiliebiao()
+    {
+        return Object.keys(this.houtaishujuService.zuocecaidan)
+    }
+
+    erjiliebiao(yiji: string)
+    {
+        return Object.keys(this.houtaishujuService.zuocecaidan[yiji])
+    }
 }

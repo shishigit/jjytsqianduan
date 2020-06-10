@@ -31,7 +31,6 @@ export class DengluComponent
             .subscribe(async value =>
             {
                 this.houtaishujuService.yongyoujiekous = value as any
-                console.log(this.houtaishujuService.yongyoujiekous)
                 await this.route.navigateByUrl('zhuye')
             })
     }
