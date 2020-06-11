@@ -15,16 +15,16 @@
     <nz-layout>
         <nz-header></nz-header>
         <nz-content>
-            <nz-tabset [nzType]="'line'">
-                <nz-tab [nzTitle]="titleTemplate">
+            <nz-tabset [nzType]="'line'" [(nzSelectedIndex)]="dangqianyeqian">
+                <nz-tab *ngFor="let ls of yeqianshuju;let idx=index" [nzTitle]="titleTemplate">
                     <ng-template #titleTemplate>
                         <div>
-                            000000000000
-                            <i nz-icon nzType="close"></i>
+                            <span>{{ls.biaoti}}&nbsp;&nbsp;</span>
+                            <i nz-icon nzType="close" (click)="guanbiyeqian(idx)"></i>
                         </div>
                     </ng-template>
-                    <div #ceshi>
-                    </div>
+                    <ng-template appYeqian>
+                    </ng-template>
                 </nz-tab>
             </nz-tabset>
         </nz-content>

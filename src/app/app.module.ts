@@ -5,26 +5,31 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DengluComponent} from './page/denglu/denglu.component';
 import {
-    NzAvatarModule, NzBreadCrumbModule,
+    NzAvatarModule,
+    NzBreadCrumbModule,
     NzButtonModule,
     NzIconModule,
     NzInputModule,
-    NzLayoutModule, NzMenuModule,
-    NzNotificationModule, NzTabsModule
+    NzLayoutModule,
+    NzMenuModule,
+    NzNotificationModule,
+    NzTabsModule
 } from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { ZhuyeComponent } from './page/zhuye/zhuye.component';
-import { YonghuguanliComponent } from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
+import {ZhuyeComponent} from './page/zhuye/zhuye.component';
+import {YonghuguanliComponent} from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
+import {YeqianDirective} from './zujian/yeqian.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
         DengluComponent,
         ZhuyeComponent,
-        YonghuguanliComponent
+        YonghuguanliComponent,
+        YeqianDirective,
     ],
     imports: [
         BrowserModule,
