@@ -36,7 +36,7 @@ export class HoutaishujuService
                         ls.系统管理.用户管理[value.url] = value
                         break
                     default:
-                        console.log('未处理的请求：', JSON.stringify(value))
+                        console.error('未处理的请求：', JSON.stringify(value))
                 }
             })
 
