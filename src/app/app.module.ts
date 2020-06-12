@@ -23,6 +23,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ZhuyeComponent} from './page/zhuye/zhuye.component';
 import {YonghuguanliComponent} from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
 import {YeqianDirective} from './zujian/yeqian.directive';
+import { PutongshitiComponent } from './zujian/putongshiti/putongshiti.component';
+import { CeshipageComponent } from './page/ceshipage/ceshipage.component';
 
 const ngZorroConfig: NzConfig = {
     table: {
@@ -37,6 +39,8 @@ const ngZorroConfig: NzConfig = {
         ZhuyeComponent,
         YonghuguanliComponent,
         YeqianDirective,
+        PutongshitiComponent,
+        CeshipageComponent,
     ],
     imports: [
         BrowserModule,
