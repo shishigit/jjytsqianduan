@@ -5,9 +5,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {DengluComponent} from './page/denglu/denglu.component';
 import {
+    NZ_CONFIG,
     NzAvatarModule,
     NzBreadCrumbModule,
-    NzButtonModule, NzDividerModule,
+    NzButtonModule, NzConfig, NzDividerModule,
     NzIconModule,
     NzInputModule,
     NzLayoutModule,
@@ -22,6 +23,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ZhuyeComponent} from './page/zhuye/zhuye.component';
 import {YonghuguanliComponent} from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
 import {YeqianDirective} from './zujian/yeqian.directive';
+
+const ngZorroConfig: NzConfig = {
+    table: {
+        nzBordered: true
+    }
+};
 
 @NgModule({
     declarations: [
@@ -50,7 +57,7 @@ import {YeqianDirective} from './zujian/yeqian.directive';
         NzTableModule,
         NzDividerModule
     ],
-    providers: [],
+    providers: [{provide: NZ_CONFIG, useValue: ngZorroConfig}],
     bootstrap: [AppComponent]
 })
 export class AppModule

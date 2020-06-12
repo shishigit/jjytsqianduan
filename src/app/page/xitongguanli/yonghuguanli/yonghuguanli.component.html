@@ -1,3 +1,10 @@
+<div style="margin-bottom: 10px;text-align: right">
+    <nz-button-group>
+        <button nz-button nzType="primary">查询</button>
+        <button nz-button nzType="primary">新增</button>
+        <button nz-button nzType="primary">删除</button>
+    </nz-button-group>
+</div>
 <nz-table #basicTable [nzData]="listOfData">
     <thead>
     <tr>
@@ -13,7 +20,7 @@
         <td>{{ data.age }}</td>
         <td>{{ data.address }}</td>
         <td>
-            <a>Action 一 {{ data.name }}</a>
+            <a>Action</a>
             <nz-divider nzType="vertical"></nz-divider>
             <a>Delete</a>
         </td>
