@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, forwardRef, Inject, Input, OnInit} from '@angular/core';
+import {HttpService} from "../../service/http.service";
 
 @Component({
     selector: 'app-putongshiti',
@@ -29,13 +30,37 @@ export class PutongshitiComponent implements OnInit
     ];
 
     @Input() xianshiTianjiaAnniu: boolean = true
+    @Input() chaxunurl: string
 
-    constructor()
+    constructor(
+        private readonly httpService: HttpService,
+    )
     {
     }
 
     ngOnInit(): void
     {
+        if (!this.shuxingok()) return
+        this.huoqushuju()
     }
 
+    shuxingok()
+    {
+        if (!this.chaxunurl)
+        {
+            console.error('没有设定查询URL')
+            return false
+        }
+        return true
+    }
+
+    huoqushuju()
+    {
+        this.httpService
+            .post(this.chaxunurl, null)
+            .subscribe(value =>
+            {
+                console.log(value)
+            })
+    }
 }

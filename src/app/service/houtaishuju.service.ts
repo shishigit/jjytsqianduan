@@ -33,6 +33,7 @@ export class HoutaishujuService
                 switch (value.url)
                 {
                     case '/yonghu/tianjia':
+                    case '/yonghu/chaxun':
                         ls.系统管理.用户管理[value.url] = value
                         break
                     default:

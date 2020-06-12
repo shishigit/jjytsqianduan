@@ -17,7 +17,7 @@ export class HttpService
 
     private readonly houtai = '/houtai'
 
-    post(url: string, body: any)
+    post(url: string, body: any | null)
     {
         return this.httpClient
             .post(this.houtai + url, body)
