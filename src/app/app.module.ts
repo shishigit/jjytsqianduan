@@ -7,12 +7,12 @@ import {DengluComponent} from './page/denglu/denglu.component';
 import {
     NzAvatarModule,
     NzBreadCrumbModule,
-    NzButtonModule,
+    NzButtonModule, NzDividerModule,
     NzIconModule,
     NzInputModule,
     NzLayoutModule,
     NzMenuModule,
-    NzNotificationModule,
+    NzNotificationModule, NzTableModule,
     NzTabsModule
 } from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
@@ -46,7 +46,9 @@ import {YeqianDirective} from './zujian/yeqian.directive';
         NzLayoutModule,
         NzBreadCrumbModule,
         NzMenuModule,
-        NzTabsModule
+        NzTabsModule,
+        NzTableModule,
+        NzDividerModule
     ],
     providers: [],
     bootstrap: [AppComponent]
