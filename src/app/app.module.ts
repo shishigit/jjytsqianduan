@@ -23,12 +23,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ZhuyeComponent} from './page/zhuye/zhuye.component';
 import {YonghuguanliComponent} from './page/xitongguanli/yonghuguanli/yonghuguanli.component';
 import {YeqianDirective} from './zujian/yeqian.directive';
-import { PutongshitiComponent } from './zujian/putongshiti/putongshiti.component';
-import { CeshipageComponent } from './page/ceshipage/ceshipage.component';
+import {PutongshitiComponent} from './zujian/putongshiti/putongshiti.component';
+import {CeshipageComponent} from './page/ceshipage/ceshipage.component';
+import { TruefalsePipe } from './zujian/truefalse.pipe';
 
 const ngZorroConfig: NzConfig = {
     table: {
-        nzBordered: true
+        nzBordered: true,
+        nzSimple: true
     }
 };
 
@@ -41,6 +43,7 @@ const ngZorroConfig: NzConfig = {
         YeqianDirective,
         PutongshitiComponent,
         CeshipageComponent,
+        TruefalsePipe,
     ],
     imports: [
         BrowserModule,

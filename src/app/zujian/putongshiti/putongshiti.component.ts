@@ -8,29 +8,20 @@ import {HttpService} from "../../service/http.service";
 })
 export class PutongshitiComponent implements OnInit
 {
-    listOfData = [
-        {
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park'
-        },
-        {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park'
-        },
-        {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park'
-        }
-    ];
-
+    // 是否显示添加按钮
     @Input() xianshiTianjiaAnniu: boolean = true
+
+    // 查询数据的URL
     @Input() chaxunurl: string
+
+    // 总条数
+    zongshu: number;
+
+    // 当前页码
+    dangqianyema: number = 1;
+
+    // 表格数据
+    biaogeshuju = [];
 
     constructor(
         private readonly httpService: HttpService,
@@ -44,6 +35,9 @@ export class PutongshitiComponent implements OnInit
         this.huoqushuju()
     }
 
+    /**
+     * 检查属性
+     */
     shuxingok()
     {
         if (!this.chaxunurl)
@@ -54,13 +48,25 @@ export class PutongshitiComponent implements OnInit
         return true
     }
 
+    /**
+     * 获取数据
+     */
     huoqushuju()
     {
         this.httpService
             .post(this.chaxunurl, null)
             .subscribe(value =>
             {
-                console.log(value)
+                [this.biaogeshuju, this.zongshu] = value as any
+                console.log(this.biaogeshuju)
             })
+    }
+
+    /**
+     * 页码改变回调
+     */
+    yemagaibian()
+    {
+        this.huoqushuju()
     }
 }
