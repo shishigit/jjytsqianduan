@@ -1,1 +1,20 @@
-<app-putongshiti [xianshiTianjiaAnniu]="false"></app-putongshiti>
+<nz-table>
+    <thead>
+    <tr>
+        <th>帐号</th>
+        <th>启用</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of biaogeshuju">
+        <td>{{ data.zhanghao }}</td>
+        <td>{{ data.qiyong }}</td>
+        <td>
+            <a>Action 一 {{ data.name }}</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a>Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</nz-table>

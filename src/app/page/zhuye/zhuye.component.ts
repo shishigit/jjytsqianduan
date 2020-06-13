@@ -16,7 +16,7 @@ import {YeqianDirective} from "../../zujian/yeqian.directive";
     templateUrl: './zhuye.component.html',
     styleUrls: ['./zhuye.component.css']
 })
-export class ZhuyeComponent implements OnInit, AfterViewInit
+export class ZhuyeComponent implements AfterViewInit
 {
     @ViewChildren(YeqianDirective) yeqianDirectives: QueryList<YeqianDirective>;
     yeqianshuju: { zujian: ComponentRef<any>, biaoti: string, leixing: any }[] = []
@@ -26,10 +26,6 @@ export class ZhuyeComponent implements OnInit, AfterViewInit
         readonly houtaishujuService: HoutaishujuService,
         private readonly factoryResolver: ComponentFactoryResolver
     )
-    {
-    }
-
-    ngOnInit(): void
     {
     }
 
@@ -88,8 +84,12 @@ export class ZhuyeComponent implements OnInit, AfterViewInit
             {
                 if (!value.zujian)
                 {
-                    let ls = this.factoryResolver.resolveComponentFactory(value.leixing)
-                    value.zujian = this.yeqianDirectives.last.viewContainerRef.createComponent(ls)
+                    let timeout = setTimeout(() =>
+                    {
+                        let ls = this.factoryResolver.resolveComponentFactory(value.leixing)
+                        value.zujian = this.yeqianDirectives.last.viewContainerRef.createComponent(ls)
+                        clearTimeout(timeout)
+                    })
                 }
             })
         })
