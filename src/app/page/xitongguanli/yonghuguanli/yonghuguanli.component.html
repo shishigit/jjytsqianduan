@@ -1,4 +1,4 @@
-<nz-table>
+<nz-table #biaoge [nzData]="biaogeshuju">
     <thead>
     <tr>
         <th>帐号</th>
@@ -7,11 +7,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of biaogeshuju">
+    <tr *ngFor="let data of biaoge.data">
         <td>{{ data.zhanghao }}</td>
-        <td>{{ data.qiyong }}</td>
+        <td>{{ data.jihuo|truefalse }}</td>
         <td>
-            <a>Action 一 {{ data.name }}</a>
+            <a>删除</a>
             <nz-divider nzType="vertical"></nz-divider>
             <a>Delete</a>
         </td>
