@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-ceshipage',
-  templateUrl: './ceshipage.component.html',
-  styleUrls: ['./ceshipage.component.css']
+    selector: 'app-ceshipage',
+    templateUrl: './ceshipage.component.html',
+    styleUrls: ['./ceshipage.component.css']
 })
-export class CeshipageComponent implements OnInit {
+export class CeshipageComponent implements OnInit
+{
 
-  constructor() { }
+    constructor()
+    {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void
+    {
+    }
 
 }

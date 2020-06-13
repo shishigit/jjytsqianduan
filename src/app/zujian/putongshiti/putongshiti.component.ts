@@ -14,6 +14,9 @@ export class PutongshitiComponent implements OnInit
     // 查询数据的URL
     @Input() chaxunurl: string
 
+    // 查询数据的URL
+    @Input() biaotoumoban: string[]
+
     // 总条数
     zongshu: number;
 

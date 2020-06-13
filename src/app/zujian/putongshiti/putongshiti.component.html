@@ -5,21 +5,24 @@
         <button nz-button nzType="primary">删除</button>
     </nz-button-group>
 </div>
-<nz-table #basicTable
+<nz-table #biaoge
           [nzData]="biaogeshuju"
           [nzTotal]="zongshu"
           [(nzPageIndex)]="dangqianyema"
           (nzPageIndexChange)="yemagaibian()"
 >
     <thead>
-    <tr>
-        <th>帐号</th>
-        <th>激活</th>
-        <th>Action</th>
-    </tr>
+    <ng-template [ngIf]="!biaotoumoban">
+        <ng-content select="biaotoumoban"></ng-content>
+    </ng-template>
+    <ng-template [ngIf]="biaotoumoban">
+        <tr>
+            <th *ngFor="let it of biaotoumoban">{{it}}</th>
+        </tr>
+    </ng-template>
     </thead>
     <tbody>
-    <tr *ngFor="let data of basicTable.data">
+    <tr *ngFor="let data of biaoge.data">
         <td>{{ data.zhanghao }}</td>
         <td>{{ data.jihuo |truefalse}}</td>
         <td>
