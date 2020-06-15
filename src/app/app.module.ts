@@ -8,7 +8,7 @@ import {
     NZ_CONFIG,
     NzAvatarModule,
     NzBreadCrumbModule,
-    NzButtonModule, NzConfig, NzDividerModule, NzDrawerModule,
+    NzButtonModule, NzConfig, NzDividerModule, NzDrawerModule, NzFormModule,
     NzIconModule,
     NzInputModule,
     NzLayoutModule,
@@ -61,7 +61,8 @@ const ngZorroConfig: NzConfig = {
         NzTabsModule,
         NzTableModule,
         NzDividerModule,
-        NzDrawerModule
+        NzDrawerModule,
+        NzFormModule
     ],
     providers: [{provide: NZ_CONFIG, useValue: ngZorroConfig}],
     bootstrap: [AppComponent]

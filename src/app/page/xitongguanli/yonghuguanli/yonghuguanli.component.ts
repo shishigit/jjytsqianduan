@@ -8,6 +8,10 @@ import {HttpService} from "../../../service/http.service";
 })
 export class YonghuguanliComponent implements OnInit
 {
+    tianjiaxinxi = {
+        zhanghao: ''
+    }
+
     biaogeshuju = [];
     xianshitianjia = false
 
@@ -37,8 +41,11 @@ export class YonghuguanliComponent implements OnInit
         this.xianshitianjia = true
     }
 
+    /**
+     * 关闭添加面板，回调
+     */
     guanbitianjia()
     {
-        this.xianshitianjia=false
+        this.xianshitianjia = false
     }
 }
