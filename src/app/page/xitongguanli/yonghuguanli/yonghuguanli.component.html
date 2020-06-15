@@ -25,7 +25,7 @@
     </tbody>
 </nz-table>
 
-<nz-drawer [nzClosable]="false" [nzVisible]="xianshitianjia" nzPlacement="right" nzTitle="Basic Drawer">
+<nz-drawer [nzClosable]="true" [nzVisible]="xianshitianjia" nzPlacement="right" nzTitle="Basic Drawer" (nzOnClose)="guanbitianjia()">
     <p>Some contents...</p>
     <p>Some contents...</p>
     <p>Some contents...</p>

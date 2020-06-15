@@ -36,4 +36,9 @@ export class YonghuguanliComponent implements OnInit
     {
         this.xianshitianjia = true
     }
+
+    guanbitianjia()
+    {
+        this.xianshitianjia=false
+    }
 }
