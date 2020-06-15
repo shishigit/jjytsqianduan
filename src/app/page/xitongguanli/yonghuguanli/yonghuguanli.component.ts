@@ -6,7 +6,7 @@ import {HttpService} from "../../../service/http.service";
     templateUrl: './yonghuguanli.component.html',
     styleUrls: ['./yonghuguanli.component.css']
 })
-export class YonghuguanliComponent implements OnInit, AfterViewInit
+export class YonghuguanliComponent implements OnInit
 {
     biaogeshuju = [];
 
@@ -14,11 +14,11 @@ export class YonghuguanliComponent implements OnInit, AfterViewInit
         readonly httpService: HttpService
     )
     {
-        this.huoqushuju()
     }
 
     ngOnInit(): void
     {
+        this.huoqushuju()
     }
 
     huoqushuju()
@@ -31,7 +31,4 @@ export class YonghuguanliComponent implements OnInit, AfterViewInit
             })
     }
 
-    ngAfterViewInit(): void
-    {
-    }
 }
