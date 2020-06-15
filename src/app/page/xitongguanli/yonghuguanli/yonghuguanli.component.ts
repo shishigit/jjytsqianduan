@@ -9,6 +9,7 @@ import {HttpService} from "../../../service/http.service";
 export class YonghuguanliComponent implements OnInit
 {
     biaogeshuju = [];
+    xianshitianjia = false
 
     constructor(
         readonly httpService: HttpService
@@ -31,4 +32,8 @@ export class YonghuguanliComponent implements OnInit
             })
     }
 
+    chuangjianyonghu()
+    {
+        this.xianshitianjia = true
+    }
 }
