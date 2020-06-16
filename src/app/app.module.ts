@@ -8,12 +8,18 @@ import {
     NZ_CONFIG,
     NzAvatarModule,
     NzBreadCrumbModule,
-    NzButtonModule, NzConfig, NzDividerModule, NzDrawerModule, NzFormModule,
+    NzButtonModule,
+    NzCheckboxModule,
+    NzConfig,
+    NzDividerModule,
+    NzDrawerModule,
+    NzFormModule,
     NzIconModule,
     NzInputModule,
     NzLayoutModule,
     NzMenuModule,
-    NzNotificationModule, NzTableModule,
+    NzNotificationModule,
+    NzTableModule,
     NzTabsModule
 } from "ng-zorro-antd";
 import {NzCardModule} from 'ng-zorro-antd/card';
@@ -25,7 +31,7 @@ import {YonghuguanliComponent} from './page/xitongguanli/yonghuguanli/yonghuguan
 import {YeqianDirective} from './zujian/yeqian.directive';
 import {CeshipageComponent} from './page/ceshipage/ceshipage.component';
 import {TruefalsePipe} from './zujian/truefalse.pipe';
-import { ChoutiComponent } from './zujian/chouti/chouti.component';
+import {ChoutiComponent} from './zujian/chouti/chouti.component';
 
 const ngZorroConfig: NzConfig = {
     table: {
@@ -64,7 +70,8 @@ const ngZorroConfig: NzConfig = {
         NzTableModule,
         NzDividerModule,
         NzDrawerModule,
-        NzFormModule
+        NzFormModule,
+        NzCheckboxModule
     ],
     providers: [{provide: NZ_CONFIG, useValue: ngZorroConfig}],
     bootstrap: [AppComponent]

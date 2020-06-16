@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
 
 @Component({
@@ -55,5 +55,12 @@ export class YonghuguanliComponent implements OnInit
     quxiaotianjia()
     {
         this.xianshitianjia = false
+    }
+
+    jihuogaibian(id: number, jihuo: boolean)
+    {
+        this.httpService
+            .post('/yonghu/jihuo', {id, jihuo})
+            .subscribe()
     }
 }

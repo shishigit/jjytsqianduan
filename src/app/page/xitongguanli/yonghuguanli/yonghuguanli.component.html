@@ -16,7 +16,10 @@
     <tbody>
     <tr *ngFor="let data of biaoge.data">
         <td>{{ data.zhanghao }}</td>
-        <td>{{ data.jihuo|truefalse }}</td>
+        <!--        <td>{{ data.jihuo|truefalse }}</td>-->
+        <td><label (ngModelChange)="jihuogaibian(data.id,data.jihuo)" [(ngModel)]="data.jihuo" nz-checkbox></label>
+        </td>
+
         <td>
             <a>删除</a>
             <nz-divider nzType="vertical"></nz-divider>
