@@ -41,10 +41,18 @@ export class YonghuguanliComponent implements OnInit
         this.xianshitianjia = true
     }
 
-    /**
-     * 关闭添加面板，回调
-     */
-    guanbitianjia()
+    quedingtianjian()
+    {
+        this.httpService
+            .post('/yonghu/tianjia', this.tianjiaxinxi)
+            .subscribe(value =>
+            {
+                this.huoqushuju()
+                this.xianshitianjia = false
+            })
+    }
+
+    quxiaotianjia()
     {
         this.xianshitianjia = false
     }

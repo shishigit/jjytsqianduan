@@ -25,6 +25,7 @@ import {YonghuguanliComponent} from './page/xitongguanli/yonghuguanli/yonghuguan
 import {YeqianDirective} from './zujian/yeqian.directive';
 import {CeshipageComponent} from './page/ceshipage/ceshipage.component';
 import {TruefalsePipe} from './zujian/truefalse.pipe';
+import { ChoutiComponent } from './zujian/chouti/chouti.component';
 
 const ngZorroConfig: NzConfig = {
     table: {
@@ -42,6 +43,7 @@ const ngZorroConfig: NzConfig = {
         YeqianDirective,
         CeshipageComponent,
         TruefalsePipe,
+        ChoutiComponent,
     ],
     imports: [
         BrowserModule,

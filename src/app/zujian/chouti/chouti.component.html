@@ -1,0 +1,15 @@
+<nz-drawer
+        [nzWidth]="kuandu"
+        [nzVisible]="xianshiyufou"
+        nzPlacement="right"
+        [nzClosable]="false"
+        [nzTitle]="biaoti"
+>
+    <ng-content></ng-content>
+    <div style="position: absolute;bottom: 20px;right: 20px">
+        <nz-button-group>
+            <button nz-button nzType="primary" (click)="quedingdianji.emit()">确定</button>
+            <button nz-button (click)="quxiaodianji.emit()">取消</button>
+        </nz-button-group>
+    </div>
+</nz-drawer>
