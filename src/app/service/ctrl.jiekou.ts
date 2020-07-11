@@ -2,6 +2,11 @@ export namespace yonghu
 {
     export type tianjiaRes = void
 
+    export interface tianjiaReq
+    {
+        zhanghao: string,
+    }
+
     export interface chaxunRes
     {
         yonghu: {
@@ -15,7 +20,18 @@ export namespace yonghu
         zongshu: number
     }
 
+    export interface chaxunReq
+    {
+
+    }
+
     export type jihuoRes = void
+
+    export interface jihuoReq
+    {
+        id: number,
+        jihuo: boolean,
+    }
 }
 
 export namespace xitong
@@ -37,4 +53,11 @@ export namespace xitong
         // 鉴权
         jianquan: string
     }
+
+    export interface dengluReq
+    {
+        mima: string,
+        zhanghao: string,
+    }
+
 }

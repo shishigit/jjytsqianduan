@@ -23,7 +23,6 @@ export class HttpService
 
     private readonly houtai = '/houtai'
 
-
     private post<T>(url: string, body: any | null)
     {
         return this.httpClient
