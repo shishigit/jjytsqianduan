@@ -10,6 +10,10 @@ import chaxunReq = yonghu.chaxunReq;
 })
 export class YonghuguanliComponent implements OnInit
 {
+    chaxunxinxi: chaxunReq = {
+        zhanghao: ''
+    }
+
     tianjiaxinxi = {
         zhanghao: ''
     }
@@ -30,7 +34,7 @@ export class YonghuguanliComponent implements OnInit
 
     huoqushuju()
     {
-        this.httpService.yonghu_chaxun({})
+        this.httpService.yonghu_chaxun(this.chaxunxinxi)
             .subscribe(value =>
             {
                 this.biaogeshuju = value.yonghu
