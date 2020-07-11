@@ -11,6 +11,8 @@ import tianjiaReq = yonghu.tianjiaReq;
 import jihuoReq = yonghu.jihuoReq;
 import chaxunReq = yonghu.chaxunReq;
 import dengluReq = xitong.dengluReq;
+import shanchuReq = yonghu.shangchuReq;
+import shanchuRes = yonghu.shangchuRes;
 
 
 @Injectable({
@@ -66,5 +68,10 @@ export class HttpService
     yonghu_tianjia(req: tianjiaReq)
     {
         return this.post<tianjiaRes>('/yonghu/tianjia', req)
+    }
+
+    yonghu_shanchu(req: shanchuReq)
+    {
+        return this.post<shanchuRes>('/yonghu/shanchu', req)
     }
 }

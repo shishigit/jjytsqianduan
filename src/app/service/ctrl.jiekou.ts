@@ -1,5 +1,14 @@
 export namespace yonghu
 {
+    export interface shangchuReq
+    {
+        id: number
+    }
+
+    export interface shangchuRes
+    {
+    }
+
     export type tianjiaRes = void
 
     export interface tianjiaReq

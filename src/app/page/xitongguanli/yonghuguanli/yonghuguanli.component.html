@@ -19,7 +19,7 @@
         <td><label (ngModelChange)="jihuogaibian(data.id,data.jihuo)" [(ngModel)]="data.jihuo" nz-checkbox></label>
         </td>
         <td>
-            <a>删除</a>
+            <a (click)="shangchu(data.id)">删除</a>
             <nz-divider nzType="vertical"></nz-divider>
             <a>Delete</a>
         </td>
