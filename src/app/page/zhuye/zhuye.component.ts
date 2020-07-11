@@ -1,12 +1,4 @@
-import {
-    AfterViewInit,
-    Component,
-    ComponentFactoryResolver,
-    ComponentRef,
-    OnInit,
-    QueryList,
-    ViewChildren
-} from '@angular/core';
+import {AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, QueryList, ViewChildren} from '@angular/core';
 import {HoutaishujuService} from "../../service/houtaishuju.service";
 import {YonghuguanliComponent} from "../xitongguanli/yonghuguanli/yonghuguanli.component";
 import {YeqianDirective} from "../../zujian/yeqian.directive";
@@ -31,8 +23,10 @@ export class ZhuyeComponent implements AfterViewInit
 
     yijiliebiao()
     {
+        console.log('444444444444444')
         return Object.keys(this.houtaishujuService.zuocecaidan)
     }
+
 
     erjiliebiao(yiji: string)
     {

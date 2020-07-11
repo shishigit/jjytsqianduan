@@ -20,15 +20,7 @@ export class HoutaishujuService
             }
         };
 
-        (JSON.parse(sessionStorage.getItem('yongyoujiekous')) as Array<{
-            id: number
-            method: 'post' | 'get' | 'all'
-            url: string
-            fenzu: string
-            shuoming: string
-            qiyong: boolean
-            jianquan: 'niming' | 'denglu' | 'jianquan'
-        }>)
+        (JSON.parse(sessionStorage.getItem('yongyoujiekous')) as Array<denglu>)
             .filter(value => value.jianquan === 'jianquan')
             .forEach(value =>
             {
@@ -36,6 +28,7 @@ export class HoutaishujuService
                 {
                     case '/yonghu/tianjia':
                     case '/yonghu/chaxun':
+                    case '/yonghu/jihuo':
                         ls.系统管理.用户管理[value.url] = value
                         break
                     default:
