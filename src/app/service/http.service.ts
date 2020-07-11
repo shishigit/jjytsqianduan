@@ -6,6 +6,7 @@ import {xitong, yonghu} from "./ctrl.jiekou";
 import tianjia = yonghu.tianjia;
 import jihuo = yonghu.jihuo;
 import chaxun = yonghu.chaxun;
+import denglu = xitong.denglu;
 
 
 @Injectable({
@@ -45,7 +46,7 @@ export class HttpService
 
     xitong_denglu(dengluxinxi: { mima: string; zhanghao: string })
     {
-        return this.post<xitong.denglu>('/xitong/denglu', dengluxinxi)
+        return this.post<denglu[]>('/xitong/denglu', dengluxinxi)
     }
 
     yonghu_chaxun()

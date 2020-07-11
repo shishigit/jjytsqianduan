@@ -29,7 +29,7 @@ export class DengluComponent
         this.httpService.xitong_denglu(this.dengluxinxi)
             .subscribe(async value =>
             {
-                this.houtaishujuService.yongyoujiekous = value as any
+                this.houtaishujuService.yongyoujiekous = value
                 await this.route.navigateByUrl('zhuye')
             })
     }

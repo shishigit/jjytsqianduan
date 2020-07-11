@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
+import {xitong} from "./ctrl.jiekou";
+import denglu = xitong.denglu;
 
 @Injectable({
     providedIn: 'root'
 })
 export class HoutaishujuService
 {
-    set yongyoujiekous(ls: Array<any>)
+    set yongyoujiekous(ls: Array<denglu>)
     {
         sessionStorage.setItem('yongyoujiekous', JSON.stringify(ls))
     }
