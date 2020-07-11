@@ -43,8 +43,7 @@ export class YonghuguanliComponent implements OnInit
 
     quedingtianjian()
     {
-        this.httpService
-            .post('/yonghu/tianjia', this.tianjiaxinxi)
+        this.httpService.yonghu_tianjia(this.tianjiaxinxi)
             .subscribe(value =>
             {
                 this.huoqushuju()

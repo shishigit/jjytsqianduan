@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
+import tianjia = yonghu.tianjia;
+
 
 @Injectable({
     providedIn: 'root'
@@ -17,10 +19,15 @@ export class HttpService
 
     private readonly houtai = '/houtai'
 
-    post(url: string, body: any | null)
+    yonghu_tianjia(tianjiaxinxi: { zhanghao: string })
+    {
+        return this.post<tianjia>('/yonghu/tianjia', tianjiaxinxi)
+    }
+
+    private post<T>(url: string, body: any | null)
     {
         return this.httpClient
-            .post(this.houtai + url, body)
+            .post<T>(this.houtai + url, body)
             .pipe(
                 catchError(err =>
                 {
