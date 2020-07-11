@@ -28,8 +28,7 @@ export class YonghuguanliComponent implements OnInit
 
     huoqushuju()
     {
-        this.httpService
-            .post('/yonghu/chaxun', null)
+        this.httpService.yonghu_chaxun()
             .subscribe(value =>
             {
                 this.biaogeshuju = value[0]
@@ -58,8 +57,6 @@ export class YonghuguanliComponent implements OnInit
 
     jihuogaibian(id: number, jihuo: boolean)
     {
-        this.httpService
-            .post('/yonghu/jihuo', {id, jihuo})
-            .subscribe()
+        this.httpService.yonghu_jihuo({id, jihuo}).subscribe()
     }
 }

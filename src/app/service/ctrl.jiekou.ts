@@ -1,4 +1,4 @@
-namespace yonghu
+export namespace yonghu
 {
     export type tianjia = void
 
@@ -18,7 +18,7 @@ namespace yonghu
     export type jihuo = void
 }
 
-namespace xitong
+export namespace xitong
 {
     export interface denglu
     {

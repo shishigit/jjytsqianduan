@@ -26,8 +26,7 @@ export class DengluComponent
 
     denglu()
     {
-        this.httpService
-            .post('/xitong/denglu', this.dengluxinxi)
+        this.httpService.xitong_denglu(this.dengluxinxi)
             .subscribe(async value =>
             {
                 this.houtaishujuService.yongyoujiekous = value as any
