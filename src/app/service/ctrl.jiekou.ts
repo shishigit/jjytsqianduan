@@ -9,7 +9,9 @@ export namespace yonghu
     {
     }
 
-    export type tianjiaRes = void
+    export interface tianjiaRes
+    {
+    }
 
     export interface tianjiaReq
     {
@@ -34,7 +36,9 @@ export namespace yonghu
 
     }
 
-    export type jihuoRes = void
+    export interface jihuoRes
+    {
+    }
 
     export interface jihuoReq
     {
