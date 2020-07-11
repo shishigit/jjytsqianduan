@@ -3,10 +3,14 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
 import {xitong, yonghu} from "./ctrl.jiekou";
-import tianjia = yonghu.tianjiaRes;
-import jihuo = yonghu.jihuoRes;
-import chaxun = yonghu.chaxunRes;
-import denglu = xitong.dengluRes;
+import tianjiaRes = yonghu.tianjiaRes;
+import jihuoRes = yonghu.jihuoRes;
+import chaxunRes = yonghu.chaxunRes;
+import dengluRes = xitong.dengluRes;
+import tianjiaReq = yonghu.tianjiaReq;
+import jihuoReq = yonghu.jihuoReq;
+import chaxunReq = yonghu.chaxunReq;
+import dengluReq = xitong.dengluReq;
 
 
 @Injectable({
@@ -43,24 +47,24 @@ export class HttpService
             )
     }
 
-    xitong_denglu(dengluxinxi: { mima: string; zhanghao: string })
+    xitong_denglu(req: dengluReq)
     {
-        return this.post<denglu[]>('/xitong/denglu', dengluxinxi)
+        return this.post<dengluRes[]>('/xitong/denglu', req)
     }
 
-    yonghu_chaxun()
+    yonghu_chaxun(req: chaxunReq)
     {
-        return this.post<chaxun>('/yonghu/chaxun', null)
+        return this.post<chaxunRes>('/yonghu/chaxun', req)
     }
 
-    yonghu_jihuo(param: { jihuo: boolean; id: number })
+    yonghu_jihuo(req: jihuoReq)
     {
 
-        return this.post<jihuo>('/yonghu/jihuo', param)
+        return this.post<jihuoRes>('/yonghu/jihuo', req)
     }
 
-    yonghu_tianjia(tianjiaxinxi: { zhanghao: string })
+    yonghu_tianjia(req: tianjiaReq)
     {
-        return this.post<tianjia>('/yonghu/tianjia', tianjiaxinxi)
+        return this.post<tianjiaRes>('/yonghu/tianjia', req)
     }
 }

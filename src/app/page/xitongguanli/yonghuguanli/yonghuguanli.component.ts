@@ -28,7 +28,7 @@ export class YonghuguanliComponent implements OnInit
 
     huoqushuju()
     {
-        this.httpService.yonghu_chaxun()
+        this.httpService.yonghu_chaxun({})
             .subscribe(value =>
             {
                 this.biaogeshuju = value.yonghu
@@ -43,7 +43,7 @@ export class YonghuguanliComponent implements OnInit
     quedingtianjian()
     {
         this.httpService.yonghu_tianjia(this.tianjiaxinxi)
-            .subscribe(value =>
+            .subscribe(() =>
             {
                 this.huoqushuju()
                 this.xianshitianjia = false
