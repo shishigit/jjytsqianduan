@@ -3,10 +3,10 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
 import {xitong, yonghu} from "./ctrl.jiekou";
-import tianjia = yonghu.tianjia;
-import jihuo = yonghu.jihuo;
-import chaxun = yonghu.chaxun;
-import denglu = xitong.denglu;
+import tianjia = yonghu.tianjiaRes;
+import jihuo = yonghu.jihuoRes;
+import chaxun = yonghu.chaxunRes;
+import denglu = xitong.dengluRes;
 
 
 @Injectable({

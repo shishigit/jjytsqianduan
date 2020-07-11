@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {xitong} from "./ctrl.jiekou";
-import denglu = xitong.denglu;
+import denglu = xitong.dengluRes;
 
 @Injectable({
     providedIn: 'root'
