@@ -31,7 +31,7 @@ export class YonghuguanliComponent implements OnInit
         this.httpService.yonghu_chaxun()
             .subscribe(value =>
             {
-                this.biaogeshuju = value[0]
+                this.biaogeshuju = value.yonghu
             })
     }
 

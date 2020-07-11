@@ -23,10 +23,8 @@ export class ZhuyeComponent implements AfterViewInit
 
     yijiliebiao()
     {
-        console.log('444444444444444')
         return Object.keys(this.houtaishujuService.zuocecaidan)
     }
-
 
     erjiliebiao(yiji: string)
     {
