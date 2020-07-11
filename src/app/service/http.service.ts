@@ -11,8 +11,12 @@ import tianjiaReq = yonghu.tianjiaReq;
 import jihuoReq = yonghu.jihuoReq;
 import chaxunReq = yonghu.chaxunReq;
 import dengluReq = xitong.dengluReq;
-import shanchuReq = yonghu.shangchuReq;
-import shanchuRes = yonghu.shangchuRes;
+import shanchuReq = yonghu.shanchuReq;
+import shanchuRes = yonghu.shanchuRes;
+import chaxunjueseReq = yonghu.chaxunjueseReq;
+import chaxunjueseRes = yonghu.chaxunjueseRes;
+import xiugaijueseReq = yonghu.xiugaijueseReq;
+import xiugaijueseRes = yonghu.xiugaijueseRes;
 
 
 @Injectable({
@@ -73,5 +77,15 @@ export class HttpService
     yonghu_shanchu(req: shanchuReq)
     {
         return this.post<shanchuRes>('/yonghu/shanchu', req)
+    }
+
+    yonghu_chaxunjuese(req: chaxunjueseReq)
+    {
+        return this.post<chaxunjueseRes[]>('/yonghu/chaxunjuese', req)
+    }
+
+    yonghu_xiugaijuese(param: xiugaijueseReq)
+    {
+        return this.post<xiugaijueseRes>('/yonghu/xiugaijuese', param)
     }
 }

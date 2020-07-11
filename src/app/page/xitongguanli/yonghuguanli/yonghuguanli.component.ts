@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
 import {yonghu} from "../../../service/ctrl.jiekou";
 import chaxunReq = yonghu.chaxunReq;
+import chaxunjueseRes = yonghu.chaxunjueseRes;
 
 @Component({
     selector: 'app-yonghuguanli',
@@ -20,6 +21,9 @@ export class YonghuguanliComponent implements OnInit
 
     biaogeshuju: chaxunReq[] = [];
     xianshitianjia = false
+    jueseqingkuang: chaxunjueseRes[] = []
+    shezhijueseyonghuid: number
+    xianshijuese = false
 
     constructor(
         readonly httpService: HttpService
@@ -41,10 +45,6 @@ export class YonghuguanliComponent implements OnInit
             })
     }
 
-    chuangjianyonghu()
-    {
-        this.xianshitianjia = true
-    }
 
     jihuogaibian(id: number, jihuo: boolean)
     {
@@ -79,6 +79,26 @@ export class YonghuguanliComponent implements OnInit
             .subscribe(value =>
             {
                 this.huoqushuju()
+            })
+    }
+
+    juesegaibian(id: number, yongyou: boolean)
+    {
+        this.httpService.yonghu_xiugaijuese({
+            yonghuid: this.shezhijueseyonghuid,
+            yongyou: !yongyou,
+            jueseid: id
+        }).subscribe()
+    }
+
+    shezhijuese(id: number)
+    {
+        this.httpService.yonghu_chaxunjuese({id})
+            .subscribe(value =>
+            {
+                this.shezhijueseyonghuid = id
+                this.jueseqingkuang = value
+                this.xianshijuese = true
             })
     }
 }

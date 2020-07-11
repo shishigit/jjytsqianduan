@@ -22,6 +22,9 @@ export class ChoutiComponent implements OnInit
     // 取消点击
     @Output() quxiaodianji = new EventEmitter()
 
+    // 是否显示取消按钮
+    @Input() xianshiquxiao = true
+
     constructor()
     {
     }
