@@ -29,6 +29,11 @@ export class HoutaishujuService
                     case '/yonghu/tianjia':
                     case '/yonghu/chaxun':
                     case '/yonghu/jihuo':
+                    case '/yonghu/shanchu':
+                    case '/yonghu/yonghujuese':
+                    case '/yonghu/juese':
+                    case '/yonghu/xiugaijuese':
+                    case '/yonghu/chaxunjuese':
                         ls.系统管理.用户管理[value.url] = value
                         break
                     default:
