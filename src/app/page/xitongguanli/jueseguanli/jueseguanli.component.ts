@@ -20,7 +20,8 @@ export class JueseguanliComponent implements OnInit
     jueseqingkuang: http_yonghu.chaxunjueseRes[] = []
     shezhijueseyonghuid: number
     tianjiaxinxi = {
-        zhanghao: ''
+        mingcheng: '',
+        shuoming: ''
     }
     xianshijuese = false
     xianshitianjia = false
@@ -62,13 +63,14 @@ export class JueseguanliComponent implements OnInit
 
     quedingtianjian()
     {
-        this.httpService.yonghu_tianjia(this.tianjiaxinxi)
+        this.httpService.juese_tianjia(this.tianjiaxinxi)
             .subscribe(() =>
             {
                 this.huoqushuju()
                 this.xianshitianjia = false
                 this.tianjiaxinxi = {
-                    zhanghao: ''
+                    mingcheng: '',
+                    shuoming: ''
                 }
             })
     }
@@ -77,7 +79,8 @@ export class JueseguanliComponent implements OnInit
     {
         this.xianshitianjia = false
         this.tianjiaxinxi = {
-            zhanghao: ''
+            shuoming: '',
+            mingcheng: ''
         }
     }
 

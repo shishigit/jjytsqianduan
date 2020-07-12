@@ -76,4 +76,9 @@ export class HttpService
     {
         return this.post<http_yonghu.xiugaijueseRes>('/yonghu/xiugaijuese', param)
     }
+
+    juese_tianjia(param: http_juese.tianjiaReq)
+    {
+        return this.post<http_juese.tianjiaRes>('/juese/tianjia', param)
+    }
 }

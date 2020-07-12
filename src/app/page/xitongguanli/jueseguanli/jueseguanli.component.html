@@ -38,19 +38,23 @@
     </tbody>
 </nz-table>
 
-<!-- 添加用户 -->
+<!-- 添加角色 -->
 <app-chouti
         (quedingdianji)="quedingtianjian()"
         (quxiaodianji)="quxiaotianjia()"
         [kuandu]="500"
         [xianshiyufou]="xianshitianjia"
-        biaoti="用户信息"
+        biaoti="角色信息"
 >
     <form nz-form nzLayout="vertical">
         <nz-form-item>
-            <nz-form-label>帐号</nz-form-label>
+            <nz-form-label>名称</nz-form-label>
             <nz-form-control>
-                <input [(ngModel)]="tianjiaxinxi.zhanghao" name="zhanghao" nz-input>
+                <input [(ngModel)]="tianjiaxinxi.mingcheng" name="mingcheng" nz-input/>
+            </nz-form-control>
+            <nz-form-label>说明</nz-form-label>
+            <nz-form-control>
+                <textarea [(ngModel)]="tianjiaxinxi.shuoming" name="shuoming" nz-input></textarea>
             </nz-form-control>
         </nz-form-item>
     </form>
