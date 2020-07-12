@@ -16,7 +16,8 @@ export class HoutaishujuService
     {
         let ls = {
             系统管理: {
-                用户管理: {}
+                用户管理: {},
+                角色管理: {},
             }
         };
 
@@ -33,6 +34,9 @@ export class HoutaishujuService
                     case '/yonghu/xiugaijuese':
                     case '/yonghu/chaxunjuese':
                         ls.系统管理.用户管理[value.url] = value
+                        break
+                    case '/juese/chaxun':
+                        ls.系统管理.角色管理[value.url] = value
                         break
                     default:
                         console.error('未处理的请求：', JSON.stringify(value))
