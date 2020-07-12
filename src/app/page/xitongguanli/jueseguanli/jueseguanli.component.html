@@ -1,1 +1,86 @@
-<p>jueseguanli works!</p>
+<!-- 查询部分 -->
+<div style="margin-bottom: 10px;text-align: right">
+    <form nz-form style="display: inline-block">
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzFor="zhanghao">帐号</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <input [(ngModel)]="chaxunxinxi.zhanghao" name="zhanghao" nz-input type="text">
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+    <nz-button-group>
+        <button (click)="huoqushuju()" nz-button nzType="primary">查询</button>
+        <button (click)="xianshitianjia=true" nz-button nzType="primary">创建用户</button>
+    </nz-button-group>
+</div>
+
+<!-- 表格部分 -->
+<nz-table #biaoge [nzData]="biaogeshuju">
+    <thead>
+    <tr>
+        <th>帐号</th>
+        <th>启用</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of biaoge.data">
+        <td>{{ data.zhanghao }}</td>
+        <td><label (ngModelChange)="jihuogaibian(data.id,data.jihuo)" [(ngModel)]="data.jihuo" nz-checkbox></label>
+        </td>
+        <td>
+            <a (click)="shangchu(data.id)">删除</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="shezhijuese(data.id)">角色</a>
+        </td>
+    </tr>
+    </tbody>
+</nz-table>
+
+<!-- 添加用户 -->
+<app-chouti
+        (quedingdianji)="quedingtianjian()"
+        (quxiaodianji)="quxiaotianjia()"
+        [kuandu]="500"
+        [xianshiyufou]="xianshitianjia"
+        biaoti="用户信息"
+>
+    <form nz-form nzLayout="vertical">
+        <nz-form-item>
+            <nz-form-label>帐号</nz-form-label>
+            <nz-form-control>
+                <input [(ngModel)]="tianjiaxinxi.zhanghao" name="zhanghao" nz-input>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</app-chouti>
+
+<!-- 设置角色 -->
+<app-chouti
+        (quedingdianji)="xianshijuese=false"
+        (quxiaodianji)="xianshijuese=false"
+        [kuandu]="500"
+        [xianshiquxiao]="false"
+        [xianshiyufou]="xianshijuese"
+        biaoti="用户角色"
+>
+    <nz-table #juese [nzData]="jueseqingkuang">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>启用</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of juese.data">
+            <td>{{ data.mingcheng }}</td>
+            <td>
+                <label (ngModelChange)="juesegaibian(data.id,data.yongyou)"
+                       [(ngModel)]="data.yongyou"
+                       nz-checkbox>
+                </label>
+            </td>
+        </tr>
+        </tbody>
+    </nz-table>
+</app-chouti>
