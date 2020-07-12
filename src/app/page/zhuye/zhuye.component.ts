@@ -1,8 +1,6 @@
 import {AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, QueryList, ViewChildren} from '@angular/core';
 import {HoutaishujuService} from "../../service/houtaishuju.service";
-import {YonghuguanliComponent} from "../xitongguanli/yonghuguanli/yonghuguanli.component";
 import {YeqianDirective} from "../../zujian/yeqian.directive";
-import {JueseguanliComponent} from "../xitongguanli/jueseguanli/jueseguanli.component";
 
 @Component({
     selector: 'app-zhuye',
@@ -27,36 +25,17 @@ export class ZhuyeComponent implements AfterViewInit
         return Object.keys(this.houtaishujuService.zuocecaidan)
     }
 
-    erjiliebiao(yiji: string)
+    caidandianji(erji: { biaoqian: string, yemian: any })
     {
-        return Object.keys(this.houtaishujuService.zuocecaidan[yiji])
-    }
-
-    caidandianji(yiji: string, erji: string)
-    {
-        let zujian = null
-        switch (yiji + erji)
-        {
-            case '系统管理用户管理':
-                zujian = YonghuguanliComponent
-                break
-            case '系统管理角色管理':
-                zujian = JueseguanliComponent
-                break
-            default:
-                console.error('未处理的页签点击:' + yiji + erji)
-                return
-        }
-
         let yiyou = this.yeqianshuju
             .map((value, index) =>
             {
                 return {
                     index,
-                    name: value.leixing.name
+                    name: value.zujian.componentType.name
                 }
             })
-            .filter(value => value.name === zujian.name)
+            .filter(value => value.name === erji.yemian.name)
             .pop();
 
 
@@ -67,12 +46,24 @@ export class ZhuyeComponent implements AfterViewInit
         }
 
         this.yeqianshuju.push({
-            biaoti: erji,
+            biaoti: erji.biaoqian,
             zujian: null,
-            leixing: zujian
+            leixing: erji.yemian
         })
 
         this.dangqianyeqian = this.yeqianshuju.length
+    }
+
+    erjiliebiao(yiji: string)
+    {
+        return Object.keys(this.houtaishujuService.zuocecaidan[yiji])
+            .map(value =>
+            {
+                return {
+                    biaoqian: value,
+                    yemian: this.houtaishujuService.zuocecaidan[yiji][value].yemian
+                }
+            })
     }
 
     ngAfterViewInit(): void

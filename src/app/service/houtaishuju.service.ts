@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {xitong} from "./ctrl.jiekou";
+import {YonghuguanliComponent} from "../page/xitongguanli/yonghuguanli/yonghuguanli.component";
+import {JueseguanliComponent} from "../page/xitongguanli/jueseguanli/jueseguanli.component";
 import denglu = xitong.dengluRes;
 
 @Injectable({
@@ -16,8 +18,12 @@ export class HoutaishujuService
     {
         let ls = {
             系统管理: {
-                用户管理: {},
-                角色管理: {},
+                用户管理: {
+                    yemian: YonghuguanliComponent
+                },
+                角色管理: {
+                    yemian: JueseguanliComponent
+                },
             }
         };
 
