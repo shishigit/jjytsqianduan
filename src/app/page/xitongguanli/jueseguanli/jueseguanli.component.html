@@ -10,24 +10,23 @@
     </form>
     <nz-button-group>
         <button (click)="huoqushuju()" nz-button nzType="primary">查询</button>
-        <button (click)="xianshitianjia=true" nz-button nzType="primary">创建用户</button>
+        <button (click)="xianshitianjia=true" nz-button nzType="primary">创建角色</button>
     </nz-button-group>
 </div>
 
 <!-- 表格部分 -->
-<nz-table #biaoge [nzData]="biaogeshuju">
+<nz-table #biaoge [nzData]="biaogeshuju.juese">
     <thead>
     <tr>
-        <th>帐号</th>
-        <th>启用</th>
+        <th>名称</th>
+        <th>说明</th>
         <th>操作</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let data of biaoge.data">
-        <td>{{ data.zhanghao }}</td>
-        <td><label (ngModelChange)="jihuogaibian(data.id,data.jihuo)" [(ngModel)]="data.jihuo" nz-checkbox></label>
-        </td>
+        <td>{{ data.mingcheng }}</td>
+        <td>{{ data.shuoming }}</td>
         <td>
             <a (click)="shangchu(data.id)">删除</a>
             <nz-divider nzType="vertical"></nz-divider>

@@ -97,5 +97,22 @@ export namespace xitong
         mima: string,
         zhanghao: string,
     }
+}
 
+export namespace juese
+{
+    export interface chaxunReq
+    {
+
+    }
+
+    export interface chaxunRes
+    {
+        juese: {
+            id: number;
+            mingcheng: string;
+            shuoming: string;
+        }[],
+        zongshu: number
+    }
 }

@@ -2,21 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
-import {xitong, yonghu} from "./ctrl.jiekou";
-import tianjiaRes = yonghu.tianjiaRes;
-import jihuoRes = yonghu.jihuoRes;
-import chaxunRes = yonghu.chaxunRes;
+import {juese, xitong, yonghu} from "./ctrl.jiekou";
 import dengluRes = xitong.dengluRes;
-import tianjiaReq = yonghu.tianjiaReq;
-import jihuoReq = yonghu.jihuoReq;
-import chaxunReq = yonghu.chaxunReq;
 import dengluReq = xitong.dengluReq;
-import shanchuReq = yonghu.shanchuReq;
-import shanchuRes = yonghu.shanchuRes;
-import chaxunjueseReq = yonghu.chaxunjueseReq;
-import chaxunjueseRes = yonghu.chaxunjueseRes;
-import xiugaijueseReq = yonghu.xiugaijueseReq;
-import xiugaijueseRes = yonghu.xiugaijueseRes;
 
 
 @Injectable({
@@ -58,34 +46,39 @@ export class HttpService
         return this.post<dengluRes[]>('/xitong/denglu', req)
     }
 
-    yonghu_chaxun(req: chaxunReq)
+    juese_chaxun(param: juese.chaxunReq)
     {
-        return this.post<chaxunRes>('/yonghu/chaxun', req)
+        return this.post<juese.chaxunRes>('/juese/chaxun', param)
     }
 
-    yonghu_jihuo(req: jihuoReq)
+    yonghu_chaxun(req: yonghu.chaxunReq)
     {
-
-        return this.post<jihuoRes>('/yonghu/jihuo', req)
+        return this.post<yonghu.chaxunRes>('/yonghu/chaxun', req)
     }
 
-    yonghu_tianjia(req: tianjiaReq)
+    yonghu_chaxunjuese(req: yonghu.chaxunjueseReq)
     {
-        return this.post<tianjiaRes>('/yonghu/tianjia', req)
+        return this.post<yonghu.chaxunjueseRes[]>('/yonghu/chaxunjuese', req)
     }
 
-    yonghu_shanchu(req: shanchuReq)
+    yonghu_jihuo(req: yonghu.jihuoReq)
     {
-        return this.post<shanchuRes>('/yonghu/shanchu', req)
+
+        return this.post<yonghu.jihuoRes>('/yonghu/jihuo', req)
     }
 
-    yonghu_chaxunjuese(req: chaxunjueseReq)
+    yonghu_shanchu(req: yonghu.shanchuReq)
     {
-        return this.post<chaxunjueseRes[]>('/yonghu/chaxunjuese', req)
+        return this.post<yonghu.shanchuRes>('/yonghu/shanchu', req)
     }
 
-    yonghu_xiugaijuese(param: xiugaijueseReq)
+    yonghu_tianjia(req: yonghu.tianjiaReq)
     {
-        return this.post<xiugaijueseRes>('/yonghu/xiugaijuese', param)
+        return this.post<yonghu.tianjiaRes>('/yonghu/tianjia', req)
+    }
+
+    yonghu_xiugaijuese(param: yonghu.xiugaijueseReq)
+    {
+        return this.post<yonghu.xiugaijueseRes>('/yonghu/xiugaijuese', param)
     }
 }

@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
 import {yonghu} from "../../../service/ctrl.jiekou";
-import chaxunReq = yonghu.chaxunReq;
-import chaxunjueseRes = yonghu.chaxunjueseRes;
 
 @Component({
     selector: 'app-yonghuguanli',
@@ -11,17 +9,16 @@ import chaxunjueseRes = yonghu.chaxunjueseRes;
 })
 export class YonghuguanliComponent implements OnInit
 {
-    chaxunxinxi: chaxunReq = {
-        zhanghao: ''
-    }
+    biaogeshuju: yonghu.chaxunRes = {yonghu: [], zongshu: 0};
 
     tianjiaxinxi = {
         zhanghao: ''
     }
-
-    biaogeshuju: chaxunReq[] = [];
+    chaxunxinxi: yonghu.chaxunReq = {
+        zhanghao: ''
+    }
     xianshitianjia = false
-    jueseqingkuang: chaxunjueseRes[] = []
+    jueseqingkuang: yonghu.chaxunjueseRes[] = []
     shezhijueseyonghuid: number
     xianshijuese = false
 
@@ -41,7 +38,7 @@ export class YonghuguanliComponent implements OnInit
         this.httpService.yonghu_chaxun(this.chaxunxinxi)
             .subscribe(value =>
             {
-                this.biaogeshuju = value.yonghu
+                this.biaogeshuju = value
             })
     }
 
