@@ -94,7 +94,7 @@ export namespace http_juese
 {
     export interface chaxunReq
     {
-
+        mingcheng: string
     }
 
     export interface chaxunRes
@@ -103,6 +103,7 @@ export namespace http_juese
             id: number;
             mingcheng: string;
             shuoming: string;
+            jihuo: boolean
         }[],
         zongshu: number
     }

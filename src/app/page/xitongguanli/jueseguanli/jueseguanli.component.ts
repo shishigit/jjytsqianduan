@@ -15,7 +15,7 @@ export class JueseguanliComponent implements OnInit
         zongshu: 0
     };
     chaxunxinxi: http_juese.chaxunReq = {
-        zhanghao: ''
+        mingcheng: ''
     }
     jueseqingkuang: http_yonghu.chaxunjueseRes[] = []
     shezhijueseyonghuid: number
@@ -53,6 +53,7 @@ export class JueseguanliComponent implements OnInit
             jueseid: id
         }).subscribe()
     }
+
 
     ngOnInit(): void
     {

@@ -4,7 +4,7 @@
         <nz-form-item>
             <nz-form-label [nzSpan]="6" nzFor="zhanghao">帐号</nz-form-label>
             <nz-form-control [nzSpan]="14">
-                <input [(ngModel)]="chaxunxinxi.zhanghao" name="zhanghao" nz-input type="text">
+                <input [(ngModel)]="chaxunxinxi.mingcheng" name="zhanghao" nz-input type="text">
             </nz-form-control>
         </nz-form-item>
     </form>
@@ -19,6 +19,7 @@
     <thead>
     <tr>
         <th>名称</th>
+        <th>激活</th>
         <th>说明</th>
         <th>操作</th>
     </tr>
@@ -26,6 +27,9 @@
     <tbody>
     <tr *ngFor="let data of biaoge.data">
         <td>{{ data.mingcheng }}</td>
+        <td>
+            <label (ngModelChange)="jihuogaibian(data.id,data.jihuo)" [(ngModel)]="data.jihuo" nz-checkbox></label>
+        </td>
         <td>{{ data.shuoming }}</td>
         <td>
             <a (click)="shezhijuese(data.id)">角色</a>
