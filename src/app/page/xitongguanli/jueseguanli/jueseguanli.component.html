@@ -2,9 +2,9 @@
 <div style="margin-bottom: 10px;text-align: right">
     <form nz-form style="display: inline-block">
         <nz-form-item>
-            <nz-form-label [nzSpan]="6" nzFor="zhanghao">帐号</nz-form-label>
+            <nz-form-label [nzSpan]="6" nzFor="mingcheng">名称</nz-form-label>
             <nz-form-control [nzSpan]="14">
-                <input [(ngModel)]="chaxunxinxi.mingcheng" name="zhanghao" nz-input type="text">
+                <input [(ngModel)]="chaxunxinxi.mingcheng" name="mingcheng" nz-input type="text">
             </nz-form-control>
         </nz-form-item>
     </form>
@@ -62,7 +62,7 @@
     </form>
 </app-chouti>
 
-<!-- 设置角色 -->
+<!-- 设置接口 -->
 <app-chouti
         (quedingdianji)="xianshijuese=false"
         (quxiaodianji)="xianshijuese=false"

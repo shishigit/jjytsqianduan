@@ -44,6 +44,7 @@ export class HoutaishujuService
                     case '/juese/chaxun':
                     case '/juese/jihuo':
                     case '/juese/tianjia':
+                    case '/juese/xiugai':
                         ls.系统管理.角色管理[value.url] = value
                         break
                     default:
