@@ -30,9 +30,11 @@
         <td>
             <label (ngModelChange)="jihuogaibian(data.id,data.jihuo)" [(ngModel)]="data.jihuo" nz-checkbox></label>
         </td>
-        <td>{{ data.shuoming }}</td>
+        <td nzBreakWord>{{ data.shuoming }}</td>
         <td>
-            <a (click)="shezhijuese(data.id)">角色</a>
+            <a (click)="shezhijuese(data.id)">接口</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (click)="xiugaijuese(data.id)">修改</a>
         </td>
     </tr>
     </tbody>

@@ -67,16 +67,28 @@ export class JueseguanliComponent implements OnInit
 
     quedingtianjian()
     {
-        this.httpService.juese_tianjia(this.tianjiaxinxi)
-            .subscribe(() =>
-            {
-                this.huoqushuju()
-                this.xianshitianjia = false
-                this.tianjiaxinxi = {
-                    mingcheng: '',
-                    shuoming: ''
-                }
-            })
+        if (this.tianjiaxinxi['id'])
+            this.httpService.juese_xiugai(this.tianjiaxinxi as any)
+                .subscribe(() =>
+                {
+                    this.huoqushuju()
+                    this.xianshitianjia = false
+                    this.tianjiaxinxi = {
+                        mingcheng: '',
+                        shuoming: ''
+                    }
+                })
+        else
+            this.httpService.juese_tianjia(this.tianjiaxinxi)
+                .subscribe(() =>
+                {
+                    this.huoqushuju()
+                    this.xianshitianjia = false
+                    this.tianjiaxinxi = {
+                        mingcheng: '',
+                        shuoming: ''
+                    }
+                })
     }
 
     quxiaotianjia()
@@ -99,4 +111,10 @@ export class JueseguanliComponent implements OnInit
             })
     }
 
+    xiugaijuese(id: any)
+    {
+        let juese = this.biaogeshuju.juese.filter(value => value.id === id).pop()
+        this.tianjiaxinxi = {...juese}
+        this.xianshitianjia = true
+    }
 }

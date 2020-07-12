@@ -86,4 +86,9 @@ export class HttpService
     {
         return this.post<http_juese.jihuoRes>('/juese/jihuo', param)
     }
+
+    juese_xiugai(param: http_juese.xiugaiReq)
+    {
+        return this.post<http_juese.jihuoRes>('/juese/xiugai', param)
+    }
 }
