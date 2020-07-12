@@ -32,7 +32,7 @@
         </td>
         <td nzBreakWord>{{ data.shuoming }}</td>
         <td>
-            <a (click)="shezhijuese(data.id)">接口</a>
+            <a (click)="shezhijiekou(data.id)">接口</a>
             <nz-divider nzType="vertical"></nz-divider>
             <a (click)="xiugaijuese(data.id)">修改</a>
         </td>
@@ -64,29 +64,31 @@
 
 <!-- 设置接口 -->
 <app-chouti
-        (quedingdianji)="xianshijuese=false"
-        (quxiaodianji)="xianshijuese=false"
+        (quedingdianji)="xianshijiekou=false"
+        (quxiaodianji)="xianshijiekou=false"
         [kuandu]="500"
         [xianshiquxiao]="false"
-        [xianshiyufou]="xianshijuese"
+        [xianshiyufou]="xianshijiekou"
         biaoti="用户角色"
 >
-    <nz-table #juese [nzData]="jueseqingkuang">
+    <nz-table [nzData]="jiekouqingkuang" nzSize="small">
         <thead>
         <tr>
-            <th>名称</th>
-            <th>启用</th>
+            <th>分组</th>
+            <th>激活</th>
+            <th>功能</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let data of juese.data">
-            <td>{{ data.mingcheng }}</td>
+        <tr *ngFor="let data of jiekouqingkuang">
+            <td>{{ data.fenzu }}</td>
             <td>
-                <label (ngModelChange)="juesegaibian(data.id,data.yongyou)"
+                <label (ngModelChange)="jiekougaibian(data.id,data.yongyou)"
                        [(ngModel)]="data.yongyou"
                        nz-checkbox>
                 </label>
             </td>
+            <td>{{ data.shuoming }}</td>
         </tr>
         </tbody>
     </nz-table>

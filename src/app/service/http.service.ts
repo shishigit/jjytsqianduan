@@ -12,6 +12,8 @@ import dengluReq = http_xitong.dengluReq;
 })
 export class HttpService
 {
+    private readonly houtai = '/houtai'
+
     constructor(
         private readonly httpClient: HttpClient,
         private notification: NzNotificationService
@@ -19,36 +21,34 @@ export class HttpService
     {
     }
 
-    private readonly houtai = '/houtai'
-
-    private post<T>(url: string, body: any | null)
+    juese_chaxun(param: http_juese.chaxunReq)
     {
-        return this.httpClient
-            .post<T>(this.houtai + url, body)
-            .pipe(
-                catchError(err =>
-                {
-                    if (err instanceof HttpErrorResponse)
-                    {
-                        if (err.status === 600)
-                        {
-                            this.notification.info('提示', err.error)
-                            throw err
-                        }
-                    }
-                    throw err
-                })
-            )
+        return this.post<http_juese.chaxunRes>('/juese/chaxun', param)
+    }
+
+    juese_chaxunjiekou(param: http_juese.chaxunjiekouReq)
+    {
+        return this.post<http_juese.chaxunjiekouRes[]>('/juese/chaxunjiekou', param)
+    }
+
+    juese_jihuo(param: http_juese.jihuoReq)
+    {
+        return this.post<http_juese.jihuoRes>('/juese/jihuo', param)
+    }
+
+    juese_tianjia(param: http_juese.tianjiaReq)
+    {
+        return this.post<http_juese.tianjiaRes>('/juese/tianjia', param)
+    }
+
+    juese_xiugai(param: http_juese.xiugaiReq)
+    {
+        return this.post<http_juese.xiugaiRes>('/juese/xiugai', param)
     }
 
     xitong_denglu(req: dengluReq)
     {
         return this.post<dengluRes[]>('/xitong/denglu', req)
-    }
-
-    juese_chaxun(param: http_juese.chaxunReq)
-    {
-        return this.post<http_juese.chaxunRes>('/juese/chaxun', param)
     }
 
     yonghu_chaxun(req: http_yonghu.chaxunReq)
@@ -77,18 +77,23 @@ export class HttpService
         return this.post<http_yonghu.xiugaijueseRes>('/yonghu/xiugaijuese', param)
     }
 
-    juese_tianjia(param: http_juese.tianjiaReq)
+    private post<T>(url: string, body: any | null)
     {
-        return this.post<http_juese.tianjiaRes>('/juese/tianjia', param)
-    }
-
-    juese_jihuo(param: http_juese.jihuoReq)
-    {
-        return this.post<http_juese.jihuoRes>('/juese/jihuo', param)
-    }
-
-    juese_xiugai(param: http_juese.xiugaiReq)
-    {
-        return this.post<http_juese.jihuoRes>('/juese/xiugai', param)
+        return this.httpClient
+            .post<T>(this.houtai + url, body)
+            .pipe(
+                catchError(err =>
+                {
+                    if (err instanceof HttpErrorResponse)
+                    {
+                        if (err.status === 600)
+                        {
+                            this.notification.info('提示', err.error)
+                            throw err
+                        }
+                    }
+                    throw err
+                })
+            )
     }
 }

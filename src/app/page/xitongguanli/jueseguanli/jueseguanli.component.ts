@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
-import {http_juese, http_yonghu} from "../../../service/http.jiekou";
+import {http_juese} from "../../../service/http.jiekou";
 
 @Component({
     selector: 'app-jueseguanli',
@@ -17,13 +17,13 @@ export class JueseguanliComponent implements OnInit
     chaxunxinxi: http_juese.chaxunReq = {
         mingcheng: ''
     }
-    jueseqingkuang: http_yonghu.chaxunjueseRes[] = []
-    shezhijueseyonghuid: number
+    jiekouqingkuang: http_juese.chaxunjiekouRes[] = []
+    shezhijiekoujueseid: number
     tianjiaxinxi = {
         mingcheng: '',
         shuoming: ''
     }
-    xianshijuese = false
+    xianshijiekou = false
     xianshitianjia = false
 
     constructor(
@@ -50,10 +50,10 @@ export class JueseguanliComponent implements OnInit
             })
     }
 
-    juesegaibian(id: number, yongyou: boolean)
+    jiekougaibian(id: number, yongyou: boolean)
     {
         this.httpService.yonghu_xiugaijuese({
-            yonghuid: this.shezhijueseyonghuid,
+            yonghuid: this.shezhijiekoujueseid,
             yongyou: !yongyou,
             jueseid: id
         }).subscribe()
@@ -100,14 +100,14 @@ export class JueseguanliComponent implements OnInit
         }
     }
 
-    shezhijuese(id: number)
+    shezhijiekou(id: number)
     {
-        this.httpService.yonghu_chaxunjuese({id})
+        this.httpService.juese_chaxunjiekou({id})
             .subscribe(value =>
             {
-                this.shezhijueseyonghuid = id
-                this.jueseqingkuang = value
-                this.xianshijuese = true
+                this.shezhijiekoujueseid = id
+                this.jiekouqingkuang = value
+                this.xianshijiekou = true
             })
     }
 
