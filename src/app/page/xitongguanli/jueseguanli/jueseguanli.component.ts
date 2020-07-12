@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
-import {juese, yonghu} from "../../../service/ctrl.jiekou";
-import chaxunjueseRes = yonghu.chaxunjueseRes;
+import {http_juese, http_yonghu} from "../../../service/ctrl.jiekou";
+import chaxunjueseRes = http_yonghu.chaxunjueseRes;
 
 @Component({
     selector: 'app-jueseguanli',
@@ -11,11 +11,11 @@ import chaxunjueseRes = yonghu.chaxunjueseRes;
 export class JueseguanliComponent implements OnInit
 {
 
-    biaogeshuju: juese.chaxunRes = {
+    biaogeshuju: http_juese.chaxunRes = {
         juese: [],
         zongshu: 0
     };
-    chaxunxinxi: juese.chaxunReq = {
+    chaxunxinxi: http_juese.chaxunReq = {
         zhanghao: ''
     }
     jueseqingkuang: chaxunjueseRes[] = []

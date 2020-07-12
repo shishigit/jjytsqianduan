@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {xitong} from "./ctrl.jiekou";
+import {http_xitong} from "./ctrl.jiekou";
 import {YonghuguanliComponent} from "../page/xitongguanli/yonghuguanli/yonghuguanli.component";
 import {JueseguanliComponent} from "../page/xitongguanli/jueseguanli/jueseguanli.component";
-import denglu = xitong.dengluRes;
+import denglu = http_xitong.dengluRes;
 
 @Injectable({
     providedIn: 'root'
