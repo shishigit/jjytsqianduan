@@ -43,7 +43,11 @@ export class JueseguanliComponent implements OnInit
 
     jihuogaibian(id: number, jihuo: boolean)
     {
-        this.httpService.yonghu_jihuo({id, jihuo: !jihuo}).subscribe()
+        this.httpService.juese_jihuo({id, jihuo: !jihuo})
+            .subscribe(() =>
+            {
+                this.huoqushuju()
+            })
     }
 
     juesegaibian(id: number, yongyou: boolean)
