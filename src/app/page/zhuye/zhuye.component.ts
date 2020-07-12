@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, QueryL
 import {HoutaishujuService} from "../../service/houtaishuju.service";
 import {YonghuguanliComponent} from "../xitongguanli/yonghuguanli/yonghuguanli.component";
 import {YeqianDirective} from "../../zujian/yeqian.directive";
+import {JueseguanliComponent} from "../xitongguanli/jueseguanli/jueseguanli.component";
 
 @Component({
     selector: 'app-zhuye',
@@ -39,6 +40,9 @@ export class ZhuyeComponent implements AfterViewInit
             case '系统管理用户管理':
                 zujian = YonghuguanliComponent
                 break
+            case '系统管理角色管理':
+                zujian = JueseguanliComponent
+                break
             default:
                 console.error('未处理的页签点击:' + yiji + erji)
                 return
@@ -55,6 +59,7 @@ export class ZhuyeComponent implements AfterViewInit
             .filter(value => value.name === zujian.name)
             .pop();
 
+
         if (yiyou)
         {
             this.dangqianyeqian = yiyou.index
@@ -64,8 +69,10 @@ export class ZhuyeComponent implements AfterViewInit
         this.yeqianshuju.push({
             biaoti: erji,
             zujian: null,
-            leixing: YonghuguanliComponent
+            leixing: zujian
         })
+
+        this.dangqianyeqian = this.yeqianshuju.length
     }
 
     ngAfterViewInit(): void
