@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
-import {http_juese, http_xitong, http_yonghu} from "./ctrl.jiekou";
+import {http_juese, http_xitong, http_yonghu} from "./http.jiekou";
 import dengluRes = http_xitong.dengluRes;
 import dengluReq = http_xitong.dengluReq;
 
@@ -65,11 +65,6 @@ export class HttpService
     {
 
         return this.post<http_yonghu.jihuoRes>('/yonghu/jihuo', req)
-    }
-
-    yonghu_shanchu(req: http_yonghu.shanchuReq)
-    {
-        return this.post<http_yonghu.shanchuRes>('/yonghu/shanchu', req)
     }
 
     yonghu_tianjia(req: http_yonghu.tianjiaReq)

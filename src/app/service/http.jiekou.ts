@@ -1,14 +1,5 @@
 export namespace http_yonghu
 {
-    export interface shanchuReq
-    {
-        id: number
-    }
-
-    export interface shanchuRes
-    {
-    }
-
     export interface tianjiaRes
     {
     }

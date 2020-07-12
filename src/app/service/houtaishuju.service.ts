@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {http_xitong} from "./ctrl.jiekou";
+import {http_xitong} from "./http.jiekou";
 import {YonghuguanliComponent} from "../page/xitongguanli/yonghuguanli/yonghuguanli.component";
 import {JueseguanliComponent} from "../page/xitongguanli/jueseguanli/jueseguanli.component";
 import denglu = http_xitong.dengluRes;

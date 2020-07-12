@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
-import {http_yonghu} from "../../../service/ctrl.jiekou";
+import {http_yonghu} from "../../../service/http.jiekou";
 
 @Component({
     selector: 'app-yonghuguanli',
@@ -67,16 +67,6 @@ export class YonghuguanliComponent implements OnInit
         this.tianjiaxinxi = {
             zhanghao: ''
         }
-    }
-
-    shangchu(id: number)
-    {
-        this.httpService
-            .yonghu_shanchu({id})
-            .subscribe(value =>
-            {
-                this.huoqushuju()
-            })
     }
 
     juesegaibian(id: number, yongyou: boolean)
