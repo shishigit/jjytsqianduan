@@ -96,4 +96,9 @@ export class HttpService
                 })
             )
     }
+
+    juese_xiugaijiekou(param: http_juese.xiugaijiekouReq)
+    {
+        return this.post<http_juese.xiugaijiekouRes>('/juese/xiugaijiekou', param)
+    }
 }

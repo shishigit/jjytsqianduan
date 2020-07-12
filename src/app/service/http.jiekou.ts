@@ -92,6 +92,18 @@ export namespace http_xitong
 
 export namespace http_juese
 {
+    export interface xiugaijiekouReq
+    {
+        jiekouid: number
+        jueseid: number;
+        yongyou: boolean;
+    }
+
+    export interface xiugaijiekouRes
+    {
+
+    }
+
     export interface chaxunjiekouReq
     {
         id: number

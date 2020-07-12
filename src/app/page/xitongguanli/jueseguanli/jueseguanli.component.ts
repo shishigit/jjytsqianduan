@@ -52,11 +52,11 @@ export class JueseguanliComponent implements OnInit
 
     jiekougaibian(id: number, yongyou: boolean)
     {
-        this.httpService.yonghu_xiugaijuese({
-            yonghuid: this.shezhijiekoujueseid,
+        this.httpService.juese_xiugaijiekou({
+            jueseid: this.shezhijiekoujueseid,
             yongyou: !yongyou,
-            jueseid: id
-        }).subscribe()
+            jiekouid: id
+        }).subscribe(() => this.huoqushuju())
     }
 
 
