@@ -8,7 +8,16 @@ import dengluRes = http_xitong.dengluRes;
 const sessionStorageKey = {
     yongyoujiekous: 'yongyoujiekous'
 }
-const yemianurl = {
+
+const yemianurl: {
+    [key: string]: {
+        [key: string]: {
+            yemian: any,
+            url: string[],
+            xianshi: boolean
+        }
+    }
+} = {
     系统管理: {
         用户管理: {
             yemian: YonghuguanliComponent,
@@ -19,7 +28,8 @@ const yemianurl = {
                 '/yonghu/shanchu',
                 '/yonghu/xiugaijuese',
                 '/yonghu/chaxunjuese',
-            ]
+            ],
+            xianshi: false
         },
         角色管理: {
             yemian: JueseguanliComponent,
@@ -30,11 +40,13 @@ const yemianurl = {
                 '/juese/xiugai',
                 '/juese/xiugaijiekou',
                 '/juese/chaxunjiekou',
-            ]
+            ],
+            xianshi: false
         },
         部门管理: {
             yemian: BumenguanliComponent,
-            url: ['/bumen/chaxun',]
+            url: ['/bumen/chaxun',],
+            xianshi: false
         },
     }
 };
@@ -53,31 +65,17 @@ export class HoutaishujuService
     {
         (JSON.parse(sessionStorage.getItem(sessionStorageKey.yongyoujiekous)) as Array<dengluRes>)
             .filter(value => value.jianquan === 'jianquan')
+            .map(value => value.url)
             .forEach(value =>
             {
-                switch (value.url)
+                for (let yijikey in yemianurl)
                 {
-                    case '/yonghu/tianjia':
-                    case '/yonghu/chaxun':
-                    case '/yonghu/jihuo':
-                    case '/yonghu/shanchu':
-                    case '/yonghu/xiugaijuese':
-                    case '/yonghu/chaxunjuese':
-                        yemianurl.系统管理.用户管理[value.url] = value
-                        break
-                    case '/juese/chaxun':
-                    case '/juese/jihuo':
-                    case '/juese/tianjia':
-                    case '/juese/xiugai':
-                    case '/juese/xiugaijiekou':
-                    case '/juese/chaxunjiekou':
-                        yemianurl.系统管理.角色管理[value.url] = value
-                        break
-                    case '/bumen/chaxun':
-                        yemianurl.系统管理.部门管理[value.url] = value
-                        break
-                    default:
-                        console.error('未处理的请求：', JSON.stringify(value))
+                    for (let erjikey in yemianurl[yijikey])
+                    {
+                        if (!yemianurl[yijikey].hasOwnProperty(erjikey)) continue;
+                        let ls = yemianurl[yijikey][erjikey]
+                        if (ls.url.includes(value)) ls.xianshi = true
+                    }
                 }
             })
 
@@ -86,10 +84,7 @@ export class HoutaishujuService
             for (let erjikey in yemianurl[yijikey])
             {
                 if (!yemianurl[yijikey].hasOwnProperty(erjikey)) continue;
-                if (Object.keys(yemianurl[yijikey][erjikey]).length === 0)
-                {
-                    delete yemianurl[yijikey][erjikey]
-                }
+                if (!yemianurl[yijikey][erjikey].xianshi) delete yemianurl[yijikey][erjikey]
             }
 
             if (Object.keys(yemianurl[yijikey]).length === 0)
