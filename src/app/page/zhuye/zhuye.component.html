@@ -2,7 +2,7 @@
     <nz-sider nzCollapsible nzWidth="200px">
         <div class="logo"></div>
         <ul nz-menu nzTheme="dark" nzMode="inline">
-            <li *ngFor="let yiji of yijiliebiao()" nz-submenu [nzTitle]="yiji">
+            <li *ngFor="let yiji of yijiliebiao" [nzTitle]="yiji" nz-submenu>
                 <ul>
                     <li nz-menu-item
                         *ngFor="let erji of erjiliebiao(yiji)"
