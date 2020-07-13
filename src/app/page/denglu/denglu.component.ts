@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {HttpService} from "../../service/http.service";
 import {environment} from "../../../environments/environment";
 import {Router} from "@angular/router";
-import {HoutaishujuService} from "../../service/houtaishuju.service";
 
 @Component({
     selector: 'app-denglu',
@@ -14,7 +13,6 @@ export class DengluComponent
     constructor(
         private readonly httpService: HttpService,
         private readonly route: Router,
-        private readonly houtaishujuService: HoutaishujuService
     )
     {
     }
@@ -27,10 +25,6 @@ export class DengluComponent
     denglu()
     {
         this.httpService.xitong_denglu(this.dengluxinxi)
-            .subscribe(async value =>
-            {
-                this.houtaishujuService.yongyoujiekous = value
-                await this.route.navigateByUrl('zhuye')
-            })
+            .subscribe(async () => await this.route.navigateByUrl('zhuye'))
     }
 }
