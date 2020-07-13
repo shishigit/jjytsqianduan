@@ -47,7 +47,7 @@ export class HttpService
 
     xitong_denglu(req: dengluReq)
     {
-        return this.post<dengluRes[]>('/xitong/denglu', req)
+        return this.post<dengluRes>('/xitong/denglu', req)
     }
 
     yonghu_chaxun(req: http_yonghu.chaxunReq)
