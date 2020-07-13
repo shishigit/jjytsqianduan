@@ -7,11 +7,11 @@ import {
     QueryList,
     ViewChildren
 } from '@angular/core';
-import {HoutaishujuService} from "../../service/houtaishuju.service";
 import {YeqianDirective} from "../../zujian/yeqian.directive";
 import {YonghuguanliComponent} from "../xitongguanli/yonghuguanli/yonghuguanli.component";
 import {JueseguanliComponent} from "../xitongguanli/jueseguanli/jueseguanli.component";
 import {BumenguanliComponent} from "../xitongguanli/bumenguanli/bumenguanli.component";
+import {HttpService} from "../../service/http.service";
 
 
 @Component({
@@ -68,8 +68,8 @@ export class ZhuyeComponent implements AfterViewInit, OnInit
     yijiliebiao: string[] = []
 
     constructor(
-        readonly houtaishujuService: HoutaishujuService,
-        private readonly factoryResolver: ComponentFactoryResolver
+        private readonly factoryResolver: ComponentFactoryResolver,
+        private httpService: HttpService
     )
     {
     }
@@ -144,37 +144,47 @@ export class ZhuyeComponent implements AfterViewInit, OnInit
 
     chulicaidan()
     {
-        this.houtaishujuService.yongyoujiekous
-            .filter(value => value.jianquan === 'jianquan')
-            .map(value => value.url)
-            .forEach(value =>
+        this.httpService.xitong_huoququanxian({})
+            .subscribe(value =>
             {
+                value
+                    .filter(value => value.jianquan === 'jianquan')
+                    .map(value => value.url)
+                    .forEach(value =>
+                    {
+                        let weizhiqingiqu = true
+                        for (let yijikey in this.yemianurl)
+                        {
+                            for (let erjikey in this.yemianurl[yijikey])
+                            {
+                                if (!this.yemianurl[yijikey].hasOwnProperty(erjikey)) continue;
+                                let ls = this.yemianurl[yijikey][erjikey]
+                                if (ls.url.includes(value))
+                                {
+                                    ls.xianshi = true
+                                    weizhiqingiqu = false
+                                }
+                            }
+                        }
+                        if (weizhiqingiqu) console.error('未处理的请求：', value)
+                    })
+
                 for (let yijikey in this.yemianurl)
                 {
                     for (let erjikey in this.yemianurl[yijikey])
                     {
                         if (!this.yemianurl[yijikey].hasOwnProperty(erjikey)) continue;
-                        let ls = this.yemianurl[yijikey][erjikey]
-                        if (ls.url.includes(value)) ls.xianshi = true
+                        if (!this.yemianurl[yijikey][erjikey].xianshi) delete this.yemianurl[yijikey][erjikey]
+                    }
+
+                    if (Object.keys(this.yemianurl[yijikey]).length === 0)
+                    {
+                        delete this.yemianurl[yijikey]
                     }
                 }
+
+                this.yijiliebiao = Object.keys(this.yemianurl)
             })
-
-        for (let yijikey in this.yemianurl)
-        {
-            for (let erjikey in this.yemianurl[yijikey])
-            {
-                if (!this.yemianurl[yijikey].hasOwnProperty(erjikey)) continue;
-                if (!this.yemianurl[yijikey][erjikey].xianshi) delete this.yemianurl[yijikey][erjikey]
-            }
-
-            if (Object.keys(this.yemianurl[yijikey]).length === 0)
-            {
-                delete this.yemianurl[yijikey]
-            }
-        }
-
-        this.yijiliebiao = Object.keys(this.yemianurl)
 
     }
 
