@@ -2,32 +2,56 @@ import {Injectable} from '@angular/core';
 import {http_xitong} from "./http.jiekou";
 import {YonghuguanliComponent} from "../page/xitongguanli/yonghuguanli/yonghuguanli.component";
 import {JueseguanliComponent} from "../page/xitongguanli/jueseguanli/jueseguanli.component";
-import denglu = http_xitong.dengluRes;
+import {BumenguanliComponent} from "../page/xitongguanli/bumenguanli/bumenguanli.component";
+import dengluRes = http_xitong.dengluRes;
+
+const sessionStorageKey = {
+    yongyoujiekous: 'yongyoujiekous'
+}
+const yemianurl = {
+    系统管理: {
+        用户管理: {
+            yemian: YonghuguanliComponent,
+            url: [
+                '/yonghu/tianjia',
+                '/yonghu/chaxun',
+                '/yonghu/jihuo',
+                '/yonghu/shanchu',
+                '/yonghu/xiugaijuese',
+                '/yonghu/chaxunjuese',
+            ]
+        },
+        角色管理: {
+            yemian: JueseguanliComponent,
+            url: [
+                '/juese/chaxun',
+                '/juese/jihuo',
+                '/juese/tianjia',
+                '/juese/xiugai',
+                '/juese/xiugaijiekou',
+                '/juese/chaxunjiekou',
+            ]
+        },
+        部门管理: {
+            yemian: BumenguanliComponent,
+            url: ['/bumen/chaxun',]
+        },
+    }
+};
 
 @Injectable({
     providedIn: 'root'
 })
 export class HoutaishujuService
 {
-    set yongyoujiekous(ls: Array<denglu>)
+    set yongyoujiekous(ls: Array<dengluRes>)
     {
-        sessionStorage.setItem('yongyoujiekous', JSON.stringify(ls))
+        sessionStorage.setItem(sessionStorageKey.yongyoujiekous, JSON.stringify(ls))
     }
 
     get zuocecaidan()
     {
-        let ls = {
-            系统管理: {
-                用户管理: {
-                    yemian: YonghuguanliComponent
-                },
-                角色管理: {
-                    yemian: JueseguanliComponent
-                },
-            }
-        };
-
-        (JSON.parse(sessionStorage.getItem('yongyoujiekous')) as Array<denglu>)
+        (JSON.parse(sessionStorage.getItem(sessionStorageKey.yongyoujiekous)) as Array<dengluRes>)
             .filter(value => value.jianquan === 'jianquan')
             .forEach(value =>
             {
@@ -39,7 +63,7 @@ export class HoutaishujuService
                     case '/yonghu/shanchu':
                     case '/yonghu/xiugaijuese':
                     case '/yonghu/chaxunjuese':
-                        ls.系统管理.用户管理[value.url] = value
+                        yemianurl.系统管理.用户管理[value.url] = value
                         break
                     case '/juese/chaxun':
                     case '/juese/jihuo':
@@ -47,31 +71,34 @@ export class HoutaishujuService
                     case '/juese/xiugai':
                     case '/juese/xiugaijiekou':
                     case '/juese/chaxunjiekou':
-                        ls.系统管理.角色管理[value.url] = value
+                        yemianurl.系统管理.角色管理[value.url] = value
+                        break
+                    case '/bumen/chaxun':
+                        yemianurl.系统管理.部门管理[value.url] = value
                         break
                     default:
                         console.error('未处理的请求：', JSON.stringify(value))
                 }
             })
 
-        for (let yijikey in ls)
+        for (let yijikey in yemianurl)
         {
-            for (let erjikey in ls[yijikey])
+            for (let erjikey in yemianurl[yijikey])
             {
-                if (!ls[yijikey].hasOwnProperty(erjikey)) continue;
-                if (Object.keys(ls[yijikey][erjikey]).length === 0)
+                if (!yemianurl[yijikey].hasOwnProperty(erjikey)) continue;
+                if (Object.keys(yemianurl[yijikey][erjikey]).length === 0)
                 {
-                    delete ls[yijikey][erjikey]
+                    delete yemianurl[yijikey][erjikey]
                 }
             }
 
-            if (Object.keys(ls[yijikey]).length === 0)
+            if (Object.keys(yemianurl[yijikey]).length === 0)
             {
-                delete ls[yijikey]
+                delete yemianurl[yijikey]
             }
         }
 
-        return ls;
+        return yemianurl;
     }
 
     constructor()

@@ -6,7 +6,6 @@ import {http_juese, http_xitong, http_yonghu} from "./http.jiekou";
 import dengluRes = http_xitong.dengluRes;
 import dengluReq = http_xitong.dengluReq;
 
-
 @Injectable({
     providedIn: 'root'
 })
