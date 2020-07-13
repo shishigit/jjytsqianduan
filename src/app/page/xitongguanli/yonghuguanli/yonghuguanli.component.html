@@ -15,7 +15,12 @@
 </div>
 
 <!-- 表格部分 -->
-<nz-table #biaoge [nzData]="biaogeshuju.yonghu">
+<nz-table #biaoge
+          (nzPageIndexChange)="huoqushuju()"
+          [(nzPageIndex)]="dangqianyema"
+          [nzData]="biaogeshuju.yonghu"
+          [nzFrontPagination]="false"
+          [nzTotal]="biaogeshuju.zongshu">
     <thead>
     <tr>
         <th>帐号</th>

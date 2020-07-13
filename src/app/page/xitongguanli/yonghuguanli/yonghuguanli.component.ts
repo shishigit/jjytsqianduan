@@ -14,10 +14,12 @@ export class YonghuguanliComponent implements OnInit
     tianjiaxinxi = {
         zhanghao: ''
     }
-    chaxunxinxi: http_yonghu.chaxunReq = {
+    chaxunxinxi = {
         zhanghao: ''
     }
+
     xianshitianjia = false
+    dangqianyema = 1
     jueseqingkuang: http_yonghu.chaxunjueseRes[] = []
     shezhijueseyonghuid: number
     xianshijuese = false
@@ -35,7 +37,11 @@ export class YonghuguanliComponent implements OnInit
 
     huoqushuju()
     {
-        this.httpService.yonghu_chaxun(this.chaxunxinxi)
+        this.httpService.yonghu_chaxun(
+            {
+                zhanghao: this.chaxunxinxi.zhanghao,
+                pageindex: this.dangqianyema
+            })
             .subscribe(value =>
             {
                 this.biaogeshuju = value
