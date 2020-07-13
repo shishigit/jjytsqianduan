@@ -110,4 +110,9 @@ export class HttpService
     {
         return this.post<http_bumen.chaxunRes[]>('/bumen/chaxun', param)
     }
+
+    bumen_tianjia(param: http_bumen.tianjiaReq)
+    {
+        return this.post<http_bumen.tianjiaRes>('/bumen/chaxun', param)
+    }
 }
