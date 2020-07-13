@@ -100,4 +100,9 @@ export class HttpService
     {
         return this.post<http_juese.xiugaijiekouRes>('/juese/xiugaijiekou', param)
     }
+
+    xitong_huoququanxian(param: http_xitong.huoququanxianReq)
+    {
+        return this.post<http_xitong.huoququanxianRes[]>('/xitong/huoququanxian', param)
+    }
 }
