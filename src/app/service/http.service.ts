@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {NzNotificationService} from "ng-zorro-antd";
-import {http_juese, http_xitong, http_yonghu} from "./http.jiekou";
+import {http_bumen, http_juese, http_xitong, http_yonghu} from "./http.jiekou";
 import dengluRes = http_xitong.dengluRes;
 import dengluReq = http_xitong.dengluReq;
 
@@ -104,5 +104,10 @@ export class HttpService
     xitong_huoququanxian(param: http_xitong.huoququanxianReq)
     {
         return this.post<http_xitong.huoququanxianRes[]>('/xitong/huoququanxian', param)
+    }
+
+    bumen_chaxun(param: http_bumen.chaxunReq)
+    {
+        return this.post<http_bumen.chaxunRes[]>('/bumen/chaxun', param)
     }
 }
