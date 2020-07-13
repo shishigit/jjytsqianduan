@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../service/http.service";
 import {http_juese} from "../../../service/http.jiekou";
+import {NzTableFilterFn, NzTableFilterList} from "ng-zorro-antd/table/src/table.types";
 
 @Component({
     selector: 'app-jueseguanli',
@@ -9,6 +10,16 @@ import {http_juese} from "../../../service/http.jiekou";
 })
 export class JueseguanliComponent implements OnInit
 {
+    fenzusaixuan: {
+        guolvqi: NzTableFilterList,
+        guolvhanshu: NzTableFilterFn
+    } = {
+        guolvqi: [],
+        guolvhanshu(value: string, data: http_juese.chaxunjiekouRes)
+        {
+            return data.fenzu === value
+        }
+    }
 
     biaogeshuju: http_juese.chaxunRes = {
         juese: [],
@@ -35,10 +46,7 @@ export class JueseguanliComponent implements OnInit
     huoqushuju()
     {
         this.httpService.juese_chaxun(this.chaxunxinxi)
-            .subscribe(value =>
-            {
-                this.biaogeshuju = value
-            })
+            .subscribe(value => this.biaogeshuju = value)
     }
 
     jihuogaibian(id: number, jihuo: boolean)
@@ -108,6 +116,16 @@ export class JueseguanliComponent implements OnInit
                 this.shezhijiekoujueseid = id
                 this.jiekouqingkuang = value
                 this.xianshijiekou = true
+
+                this.fenzusaixuan.guolvqi = []
+                new Set(value.map(value1 => value1.fenzu))
+                    .forEach(value1 =>
+                    {
+                        this.fenzusaixuan.guolvqi.push({
+                            value: value1,
+                            text: value1
+                        })
+                    })
             })
     }
 

@@ -71,16 +71,20 @@
         [xianshiyufou]="xianshijiekou"
         biaoti="用户角色"
 >
-    <nz-table [nzData]="jiekouqingkuang" nzSize="small">
+    <nz-table #jiekoubiaoge [nzData]="jiekouqingkuang" nzSize="small">
         <thead>
         <tr>
-            <th>分组</th>
+            <th [nzFilterFn]="fenzusaixuan.guolvhanshu"
+                [nzFilterMultiple]="false"
+                [nzFilters]="fenzusaixuan.guolvqi">
+                分组
+            </th>
             <th>激活</th>
             <th>功能</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let data of jiekouqingkuang">
+        <tr *ngFor="let data of jiekoubiaoge.data">
             <td>{{ data.fenzu }}</td>
             <td>
                 <label (ngModelChange)="jiekougaibian(data.id,data.yongyou)"
